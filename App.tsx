@@ -14,6 +14,7 @@ import Example from './Js/Example';
 import codePush from "react-native-code-push";
 import LoginComponent from './Js/screens/Loginpage/LoginComponent';
 import SignupPage from './Js/screens/SignUp/SignupPage';
+import Profile from './Js/screens/Settingspage/SettingComponents/ProfileInformation/Profile';
 
 
 
@@ -22,7 +23,7 @@ function App() {
   return (
     // <Splash/>
   //  <Example/>
-     <Appp/>
+    //  <Appp/>
   // <MainAppp/>
   // <Onboardingone/>
   // <Signup/>
@@ -32,6 +33,7 @@ function App() {
   // <Signup/>
   // <LoginComponent/>  
   // <SignupPage/>
+  <Profile/>
   );
 } 
 
