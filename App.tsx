@@ -15,6 +15,11 @@ import codePush from "react-native-code-push";
 import LoginComponent from './Js/screens/Loginpage/LoginComponent';
 import SignupPage from './Js/screens/SignUp/SignupPage';
 import Profile from './Js/screens/Settingspage/SettingComponents/ProfileInformation/Profile';
+import Manage from './Js/screens/Settingspage/SettingComponents/ManageMultiple/Manage';
+import Changepass from './Js/screens/Settingspage/SettingComponents/ChangePassword/Changepass';
+import ColorMode from './Js/screens/Settingspage/SettingComponents/ColorModeComponent/ColorMode';
+import SelectLanguage from './Js/screens/Settingspage/SettingComponents/LanguageComponent/SelectLanguage';
+import UserManagementcomp from './Js/screens/Settingspage/SettingComponents/UserManagement/UserManagementcomp';
 
 
 
@@ -23,7 +28,7 @@ function App() {
   return (
     // <Splash/>
   //  <Example/>
-    //  <Appp/>
+     <Appp/>
   // <MainAppp/>
   // <Onboardingone/>
   // <Signup/>
@@ -33,10 +38,15 @@ function App() {
   // <Signup/>
   // <LoginComponent/>  
   // <SignupPage/>
-  <Profile/>
+  // <Profile/>
+  // <Manage/>
+  // <Changepass/>
+  // <ColorMode/>
+  // <SelectLanguage/>
+  // <UserManagementcomp/>
   );
 } 
 
 
 
-export default codePush(App);
+export default App;

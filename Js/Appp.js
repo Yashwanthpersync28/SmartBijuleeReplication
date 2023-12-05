@@ -30,4 +30,4 @@ function Appp() {
 }
 
 
-export default Appp
+export default codePush(Appp)
