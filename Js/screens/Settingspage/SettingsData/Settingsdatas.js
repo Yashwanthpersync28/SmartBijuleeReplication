@@ -1,0 +1,4 @@
+import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
+export let Profiledata=[{fonticon:'user',heading:"Profile", sub:"Information",detail:"Name, Email"},{fonticon:"user-plus",heading:"Manage",sub:"Multiple Accounts",detail:"Switch Account"},{fonticon:"lock",heading:"Change",sub:"Password",detail:"Change your current password"}]
+export let Appdata=[{fonticon:'sun',heading:"Color", sub:"Mode",detail:"To change the app view to light/dark"},{fonticon:"language",heading:"Change",sub:"Language",detail:"To change language"},{fonticon:"user-plus",heading:"User",sub:"Management",detail:"To add Family Members"}]
+export let  General=[{fonticon:'heart',heading:"Rate Our", sub:"App",detail:"Rate & Rewiew the application"},{fonticon:'envelope',heading:"Send", sub:"Feedback",detail:"Share your thought of APDCL"},{fonticon:'eye-slash',heading:"Terms and", sub:"Condition",detail:"Read our Privacy Policies & T/C"}]
