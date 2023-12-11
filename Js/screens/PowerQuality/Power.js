@@ -5,6 +5,7 @@ import Header from '../CommonComponents/Cards/Header'
 import { flex,heightValue,widthValue,styles, marginPosition, radius, fontSize, borderWidth, borderColor } from '../../../styles/Styles'
 import Cardcolors from '../CommonComponents/Cards/Cardcolors'
 import Menu from '../CommonComponents/Cards/Menu';
+import Linegraph from './Linegraph'
 
 function Power({navigation}) {
     let arr=[{time:'3pm'},{time:'3pm'},{time:'3pm'},{time:'3pm'},{time:'3pm'}]
@@ -15,6 +16,10 @@ function Power({navigation}) {
     <Menu navigation={navigation}/>
     <ScrollView> 
          <Header heading={"Power"} continueprop={"Qulaity"} details={"How is the quality of power that you are reaceiving ?"} columnwise={false} display={false}/>
+        {/* <View style={[{height:heightValue(10),width:widthValue(1.8)},styles.bgRed]}>
+        <Linegraph/>
+        </View> */}
+        
          <Cardcolors name={'Peak'} secondname={'Voltage'} units={'Voltage'} time={'4 pm'} monthshow={true} value={'0'} month={false}/>
          <View style={[{height:heightValue(2.3),width:widthValue(1)},styles.allCenter,marginPosition('3%')]}>
             <View style={[styles.bgdashblue,{height:heightValue(2.3),width:widthValue(1.1)},radius(15),styles.allCenter,styles.column]}>

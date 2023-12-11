@@ -9,13 +9,9 @@ const DrawerScreenWrapper = ({children,open}) => {
         transform:[
             {scale: interpolate(progress.value,[0,1],[1,0.8],'clamp')}
         ],
-      borderRadius:5,
-        
-        width:'200%',
-        overflow:'hidden',
-        // marginLeft:'35%'
-       
-        
+        borderRadius: interpolate(progress.value,[0, 1],[1, 30],'clamp'),
+        overflow: 'hidden',
+        marginLeft: interpolate(progress.value,[0, 1],[0, -30],'clamp'),   
     }))
     // setmargin(open)
   return (

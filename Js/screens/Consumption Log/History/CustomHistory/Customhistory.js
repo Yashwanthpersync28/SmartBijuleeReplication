@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {View,Text} from 'react-native'
 import DatePicker from "react-native-modern-datepicker";
 import { flex, fontSize, heightValue, heightwidth, marginPosition, radius, styles, widthValue } from '../../../../../styles/Styles';
@@ -10,44 +10,44 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import { Calendar } from 'react-native-calendars';
 import Calendarcomp from './Calendars/Calendarcomp';
 const Customhistory = () => {
-    const today= new Date();
-    const maxdate=getFormatedDate(today.setDate(today.getDate())+7,'YYYY/MM/DD');
-    const startDate=getFormatedDate(today.setDate(today.getDate()-7),'YYYY/MM/DD');
+  // let [selecteddate,setselecteddate]=useState('');
+  // const [enddate,setenddate]=useState('');
+  const [selecteddate, setselecteddate] = useState('');
+const [enddate, setenddate] = useState('');
+    // const today= new Date();
+    // const maxdate=getFormatedDate(today.setDate(today.getDate())+7,'YYYY/MM/DD');
+    // const startDate=getFormatedDate(today.setDate(today.getDate()-7),'YYYY/MM/DD');
+
    
     
-    const [date,setDate]=useState(maxdate)
+    // const [date,setDate]=useState(maxdate)
     let [clickedcalender,setclickedcalender]=useState(false)
+    // let togglecalendar=(selecteddate,today,a)=>{
+    //   setclickedcalender(a);
+    //   setselecteddate(selecteddate);
+    //   setenddate(today)
+    // }
+    // useEffect(() => {
+    //   console.warn("Selected Date in Customhistory:", selecteddate);
+    //   // Perform any additional actions with the updated selected date
+    // }, [selecteddate]);
+    let togglecalendar = (selecteddate) => {
+      setclickedcalender(false);
+      setselecteddate(selecteddate);
+      // console.warn(selecteddate)
+      const endDate = new Date(selecteddate);
+      endDate.setDate(endDate.getDate() + 7);
+      const formattedEndDate = endDate.toISOString().split('T')[0];
+      setenddate(formattedEndDate);
+    };
   return (
     <View style={[flex(1),{marginTop:heightValue(70),height:heightValue(5)}]}>
         <View style={[{height:heightValue(29),width:widthValue(1.1)},styles.row]}>
             <Text style={[styles.white,fontSize(20)]}>Start</Text>
-            <Text style={[styles.green,{marginLeft:5},fontSize(20)]}>Date {maxdate}</Text>
+            <Text style={[styles.green,{marginLeft:5},fontSize(20)]}>Date</Text>
         </View>
         { clickedcalender ? 
-        <Calendarcomp/>
-        // <View style={[flex(1)]}>
-        //   <Text>hello</Text>
-        //   <Calendar  style={{
-        //   width: 200, // Set the width of the calendar
-        //   height: 200, // Set the height of the calendar
-        // }}/>
-        /* <DatePicker style={{height:'50%',width:'100%'}} mode='calendar' minimumDate={startDate} options={{
-            backgroundColor:"#29292e",
-            textHeaderColor:"#ffffff",
-            textDefaultColor:"#ffffff",
-            mainColor:"#ffffff",
-            textSecondaryColor:"purple",
-            
-        }}  customStyles={{
-            dateInput: {
-              // Adjust the height here
-              height: 20,
-              borderColor: '#ccc',
-              borderRadius: 0,
-            },
-          }}/> */  
-
-          // </View>
+        <Calendarcomp onClose={(selecteddate,today,a) => togglecalendar(selecteddate, new Date().toISOString().split('T')[0], false)}/>
           :
 
         <View style={[{height:heightValue(18),width:widthValue(1.1)},styles.bgdashblue,styles.row,radius(5),styles.centerHorizontal]}>
@@ -57,7 +57,9 @@ const Customhistory = () => {
            <FontAwesome5Icon name='calendar' style={[styles.white,marginPosition(0,'5%',0,'7%'),fontSize(15)]}/>
            </TouchableOpacity>
            {/* <Image style={[heightwidth(20,30)]} src="https://img.icons8.com/material-outlined/24/FFFFFF/calendar--v1.png" alt="calendar--v1"/> */}
-            <Text style={[styles.white,{marginLeft:5},fontSize(20)]}>Start Date {""}</Text>
+            {/* <Text style={[styles.white,{marginLeft:5},fontSize(20)]}>Start Date: {selecteddate}</Text> */}
+            <Text style={[styles.green, { marginLeft: 5 }, fontSize(18)]}>Start Date {selecteddate}</Text>
+
         </View>}
         <ScrollView>
         <View style={[{height:heightValue(27),width:widthValue(1.1)},styles.allCenter]}>
@@ -67,7 +69,9 @@ const Customhistory = () => {
         <View style={[{height:heightValue(18),width:widthValue(1.1)},styles.bgdashblue,styles.row,radius(5),styles.centerHorizontal]}>
            <FontAwesome5Icon name='calendar' style={[{color:"grey"},marginPosition(0,'5%',0,'7%'),fontSize(15)]}/>
            {/* <Image style={[heightwidth(20,30)]} src="https://img.icons8.com/material-outlined/24/FFFFFF/calendar--v1.png" alt="calendar--v1"/> */}
-            <Text style={[{color:"grey"},{marginLeft:5},fontSize(20)]}>End Date {startDate}</Text>
+            {/* <Text style={[{color:"grey"},{marginLeft:5},fontSize(20)]}>End Date {enddate}</Text> */}
+            <Text style={[{ color: "grey" }, { marginLeft: 5 }, fontSize(18)]}>End Date {enddate}</Text>
+
         </View>
         <View style={[{height:heightValue(20),width:widthValue(1.1),marginTop:heightValue(20)},styles.allCenter]}>
           <TouchableOpacity style={[{height:heightValue(20),width:widthValue(4)},styles.dashboardcolour,styles.allCenter,radius(25)]}>

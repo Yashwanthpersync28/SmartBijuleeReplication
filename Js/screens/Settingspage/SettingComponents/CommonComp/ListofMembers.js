@@ -4,13 +4,13 @@ import { heightValue,widthValue,fontSize,marginPosition,styles,position,borderCo
 import { View,Text } from 'react-native'
 
 
-const ListofMembers = () => {
+const ListofMembers = ({Goto}) => {
   return (
     <View style={[{width:widthValue(1.1),height:heightValue(2)},marginPosition(20),styles.positionRelative]}>
             
             <View style={[styles.bgdashblue,radius(20),{height:heightValue(2.5)},padding(25)]}>
             <View style={[{height:50,width:50},radius(50),styles.allCenter,styles.bggreen,position(-20,-20,0),styles.positionAbsolute]}>
-                <FontAwesome5Icon name='plus'/>
+                <FontAwesome5Icon name='plus' onPress={()=>Goto(true)}/>
             </View>
                 <View style={[styles.row]}>
                     <Text style={[styles.white,fontSize(18)]}>List of </Text>

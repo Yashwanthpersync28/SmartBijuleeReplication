@@ -73,5 +73,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<Key>NSPhotoLibraryUsageDescription</key>
+	<String>Select image/video from photos</string>
+	<Key>NSCameraUsageDescription</key>
+	<String>Capture Image</string>
+	
 </dict>
 </plist>

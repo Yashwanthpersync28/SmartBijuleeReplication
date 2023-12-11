@@ -1,0 +1,3 @@
+export let usefuldata=[{name:'DDUGJY',yojana:"Deen Dayal Upadhyaya Gram Jyoti Yojana",links:'https://www.uday.gov.in/'},{name:'IPDS',yojana:"Integrated Power Development Scheme",links:'https://www.ddugjy.gov.in/'},
+{name:'RodaleeApid',yojana:"Roof Top Solar",links:'https://www.ipds.gov.in/Default.aspx'},{name:'AKASHDEEP',yojana:"Akashdeep Scheme",links:'http://www.rodalee.com/'},
+{name:'Daily Power Position',yojana:"Daily Power Position in Assam",links:'https://www.apdcl.org/website/Project?showdiv=akashdeep'},{name:'Duty of an Electricity Consumer',yojana:"Duty of an Electricity Consumer",links:'https://www.apdcl.org/website/DutiesOfConsumer'}]

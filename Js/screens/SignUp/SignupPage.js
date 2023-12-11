@@ -1,80 +1,93 @@
 import React, { useState } from 'react'
 import Buttonx from '../Loginpage/CommonCards/Buttonx'
-import {View,Text,TouchableOpacity, ScrollView,TextInput} from 'react-native'
+import {View,Text,TouchableOpacity, ScrollView,TextInput,StyleSheet} from 'react-native'
 import {heightValue, styles, widthValue ,radius,padding,marginPosition,fontSize} from '../../../styles/Styles'
-import Logincards from '../Loginpage/CommonCards/Logincards'
 import Inputbox from '../Loginpage/CommonCards/Inputbox';
-import Passwordinputbox from '../Loginpage/CommonCards/Passwordinputbox'
-import SignupCardcomponents from './Signupcomponents/SignupCardcomponents'
-const SignupPage = () => {
-    let [focusid,setfocusid]=useState(false);
-    let [passid,setpassid]=useState(false);
-    const [name, setName] = useState('');
+import PassTextInput from '../Settingspage/SettingComponents/ChangePassword/PassTextInput'
+import SignupInputbox from './Signupcomponents/SignupInputbox'
+const SignupPage = ({navigation}) => {
+  const [consumer, setconsumer] = useState('');
+  const [focusconsumer, setfocuscoumer]= useState(false);
+  const [number, setnumber] = useState('');
+  const [focusnumber, setfocusnumber]= useState(false);
   const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
+  const [focusemail, setfocusEmail]= useState(false);
   const [password, setPassword] = useState('');
+  const [focuspassword, setfocuspassword]= useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [focuscpassword, setfocuscpassword]= useState(false);
+  const [fullName, setFullName] = useState('');
+  const [focusname, setfocusname]= useState(false);
 
-  const handleNameChange = (text) => {
-    setName(text);
-    setError('');
-  };
+  const [erroroccured,seterroroccured]=useState(false)
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const [fullNameError, setFullNameError] = useState('');
 
   const handleEmailChange = (text) => {
     setEmail(text);
-    setError('');
-  };
-
-  const handleMobileChange = (text) => {
-    setMobile(text);
-    setError('');
+    // Add your email validation logic here
+    // Example: Check if the email is in a valid format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmailError(emailRegex.test(text) ? '' : 'Invalid email format');
+    seterroroccured(emailRegex.test(text));
   };
 
   const handlePasswordChange = (text) => {
     setPassword(text);
-    setError('');
+
+    // Password validation logic
+    const minLength = 6;
+    const hasNumber = /\d/.test(text);
+    const hasSpecialSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(text);
+    const hasUpperCase = /[A-Z]/.test(text);
+
+    let error = '';
+
+    if (text.length < minLength) {
+      error = `Password must be at least ${minLength} characters`;
+      seterroroccured(false)
+    } else if (!hasNumber) {
+      error = 'Password must contain at least one number';
+      seterroroccured(false)
+    } else if (!hasSpecialSymbol) {
+      error = 'Password must contain at least one special symbol';
+      seterroroccured(false)
+    } else if (!hasUpperCase) {
+      error = 'Password must contain at least one uppercase letter';
+      seterroroccured(false)
+    }
+
+    setPasswordError(error);
   };
 
   const handleConfirmPasswordChange = (text) => {
     setConfirmPassword(text);
-    setError('');
+    // Add your confirm password validation logic here
+    // Example: Check if it matches the password
+    setConfirmPasswordError(text === password ? '' : 'Passwords do not match');
+    seterroroccured(text === password)
+  };
+
+  const handleFullNameChange = (text) => {
+    setFullName(text);
+    // Add your full name validation logic here
+    // Example: Check if the full name is not empty
+    setFullNameError(text.trim() !== '' ? '' : 'Full name is required');
+    seterroroccured(text.trim() !== '')
   };
 
   const handleSubmit = () => {
-    // Simple name validation
-    if (name.trim() === '') {
-      setError('Name cannot be empty');
-      return;
+    if(erroroccured){
+      alert('Form Submitted sucessfully')
     }
-
-    // Simple email validation
-    if (!email.includes('@')) {
-      setError('Invalid email address');
-      return;
+    else{
+      alert('Warning... Please validate the form')
     }
-
-    // Simple mobile number validation
-    if (mobile.length !== 10 || !/^\d+$/.test(mobile)) {
-      setError('Invalid mobile number');
-      return;
-    }
-
-    // Simple password length validation
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters long');
-      return;
-    }
-
-    // Simple password match validation
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
-    // Valid form submission logic here
-    console.log('Form submitted successfully');
+   
   };
+
   return (
     <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>  
     <ScrollView> 
@@ -90,51 +103,101 @@ const SignupPage = () => {
                 </View>
               
     <View>
-      <TextInput
-        placeholder="Name"
-        value={name}
-        onChangeText={handleNameChange}
+    <View style={[styles.allCenter]}>
+    <SignupInputbox
+        label="CONSUMER ID"
+        value={consumer}
+        onFocus={()=>setconsumer(!consumer)} 
+        onBlur={()=>setconsumer(!consumer)} 
+        focuss={consumer}
+        height={9.8}
+        star={false}
+        showeye={false}
       />
-      <TextInput
-        placeholder="Email"
+      <SignupInputbox
+      label="Mobile Number"
+      value={number}
+      onFocus={()=>setnumber(!number)} 
+      onBlur={()=>setnumber(!number)} 
+      focuss={number}
+      height={9.8}
+      star={false}
+      showeye={false}
+    />
+      <SignupInputbox
+        label="Email"
         value={email}
         onChangeText={handleEmailChange}
+        error={emailError}
+        onFocus={()=>setfocusEmail(!focusemail)} 
+        onBlur={()=>setfocusEmail(!focusemail)} 
+        focuss={focusemail}
+        height={9.8}
+        star={true}
+        showeye={false}
       />
-      <TextInput
-        placeholder="Mobile Number"
-        keyboardType="numeric"
-        value={mobile}
-        onChangeText={handleMobileChange}
-      />
-      <TextInput
-        placeholder="Password"
+
+      <SignupInputbox
+        label="Password"
         secureTextEntry
         value={password}
         onChangeText={handlePasswordChange}
+        error={passwordError}
+        onFocus={()=>setfocuspassword(!focuspassword)} 
+        onBlur={()=>setfocuspassword(!focuspassword)} 
+        focuss={focuspassword}
+        height={9.3}
+        star={true}
+        showeye={true}
       />
-      <TextInput
-        placeholder="Confirm Password"
+
+      <SignupInputbox
+        label="Confirm Password"
         secureTextEntry
         value={confirmPassword}
         onChangeText={handleConfirmPasswordChange}
+        error={confirmPasswordError}
+        onFocus={()=>setfocuscpassword(!focuscpassword)} 
+        onBlur={()=>setfocuscpassword(!focuscpassword)} 
+        focuss={focuscpassword}
+        height={9.8}
+        star={true}
+        showeye={true}
       />
-      {error !== '' && <Text style={{ color: 'red' }}>{error}</Text>}
-      <Text  onPress={handleSubmit} style={[styles.red]}>submit</Text>
+
+      <SignupInputbox
+        label="Full Name"
+        value={fullName}
+        onChangeText={handleFullNameChange}
+        error={fullNameError}
+        onFocus={()=>setfocusname(!focusname)} 
+        onBlur={()=>setfocusname(!focusname)} 
+        focuss={focusname}
+        height={9.8}
+        star={true}
+        showeye={false}
+      />
+
+     
+     </View>
+  
     </View>
         
                 
             </View>
       </View>
      
-      <View style={[{height:heightValue(4),width:widthValue(1)},styles.allCenter]}>
-           <TouchableOpacity>
+      <View style={[{height:heightValue(4),width:widthValue(1)},styles.centerHorizontal]}>
+           <TouchableOpacity onPress={handleSubmit}>
               <View style={[styles.bggreyish,{height:heightValue(14),width:widthValue(3.1)},styles.allCenter,radius(30),marginPosition(0)]}>
               <Text style={[fontSize(20),styles.white]}>Submit</Text>
                </View>
           </TouchableOpacity>
             <View style={[styles.row,marginPosition(40)]}>
                  <Text style={[styles.white]}>Aldready have an account ?</Text>
+                 <TouchableOpacity onPress={()=>navigation.navigate('login')}>
                  <Text style={[styles.green,marginPosition(0,0,0,5)]}>Sign In</Text>
+                 </TouchableOpacity>
             </View>
        </View>
        
@@ -145,3 +208,36 @@ const SignupPage = () => {
 }
 
 export default SignupPage
+const styless = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    fontSize: 16,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 5,
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+});

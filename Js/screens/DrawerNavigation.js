@@ -27,7 +27,7 @@ import Setting from './Settingspage/SettingComponents/Setting';
 
 const Drawer= createDrawerNavigator();
 
-const DrawerNavigation = () => {
+const DrawerNavigation = ({navigation}) => {
   return (
     <>
     <NavigationContainer independent={true}>

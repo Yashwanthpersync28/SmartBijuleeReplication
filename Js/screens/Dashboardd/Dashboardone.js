@@ -7,7 +7,9 @@ import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper';
 import Exampledashboard from './Exampledashboard';
 import Header from '../CommonComponents/Cards/Header';
 import Menu from '../CommonComponents/Cards/Menu';
-
+import { VictoryLabel } from 'victory-native';
+import { Svg } from 'react-native-svg';
+import Pychart from './component/Pychart';
 
 const Dashboardone = ({navigation}) => {
   return (
@@ -15,7 +17,8 @@ const Dashboardone = ({navigation}) => {
    <View style={[{height:heightValue(1),width:widthValue(1)},styles.bglightblack]}>
     <Menu navigation={navigation}/>
     <ScrollView>
-    <Header display={false} heading={'Welcome'} continueprop={'Esyasoft'} details={'Consumer ID:12345'} columnwise={true} />
+    {/* display={false} */}
+    <Header  heading={'Welcome'} continueprop={'Esyasoft'} details={'Consumer ID:12345'} columnwise={true} />
     
     <View style={[styles.red,{height:heightValue(8),width:widthValue(1)},styles.centerVertical,styles.spaceBetweenVertical,marginPosition('5%',0,0,'0%')]}>
         <ScrollView horizontal={true}>
@@ -35,7 +38,7 @@ const Dashboardone = ({navigation}) => {
         </ScrollView>
     </View>
     <View style={[{height:heightValue(2),width:widthValue(1.1)},styles.bgdashblue,,radius(15),marginPosition('3%',0,0,'5%'),styles.allCenter]}>
-        <Exampledashboard showpagination={true} showCustom={false}/>
+        <Exampledashboard showpagination={true} showCustom={false} sendtochild={false}/>
         <View style={[styles.white,marginPosition('-6%',0,'3%',0)]}>
             <Text style={[styles.white,fontSize(11)]}>(Click on the chart to see the value)</Text>
         </View>
@@ -50,10 +53,9 @@ const Dashboardone = ({navigation}) => {
 
        </View>
        <View style={[styles.allCenter,{height:heightValue(7),width:widthValue(2.8)}]}>
-        <View style={[{height:80,width:80},radius(50),borderWidth(10),borderColor('#2e3633'),styles.allCenter]}>
-            <Text style={[styles.white,fontSize(18)]}>0%</Text>
+        <Pychart/>
         </View>
-       </View>
+
     </View>
     </ScrollView>
 </View>

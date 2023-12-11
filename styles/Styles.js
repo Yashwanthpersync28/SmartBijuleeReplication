@@ -44,6 +44,9 @@ export const setfontsize = (a) => {
 export const setdisplay = (a) => {
     return a ?  display('none') : display('show')
 }
+export const setdisplaytofalse = (a) => {
+    return a ?  display('show') : display('none')
+}
 export const setheightvalue = (a) => {
     return a ?  heightValue(1) : heightValue(2)
 }

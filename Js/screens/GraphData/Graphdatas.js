@@ -1,27 +1,27 @@
 export let obj={
 days:[
-    {month:'Mon',earnings:100},
+    {month:'Mon',earnings:10},
     {month:'Tue',earnings:100},
-    {month:'Wed',earnings:100},
-    {month:'Thu',earnings:100},
-    {month:'Fri',earnings:100},
-    {month:'Sat',earnings:100},
-    {month:'Sun',earnings:100}],
+    {month:'Wed',earnings:50},
+    {month:'Thu',earnings:80},
+    {month:'Fri',earnings:60},
+    {month:'Sat',earnings:20},
+    {month:'Sun',earnings:40}],
 
  months:[
-    { month: 'Jun', earnings: 100 },
-    { month: 'Jul', earnings: 100},
-    { month: 'Aug', earnings: 100},
-    { month: 'Sep', earnings: 100},
-    { month: 'Oct', earnings: 100},
-    { month: 'Nov', earnings: 100}
+    { month: 'Jun', earnings: 80 },
+    { month: 'Jul', earnings: 10},
+    { month: 'Aug', earnings: 30},
+    { month: 'Sep', earnings: 90},
+    { month: 'Oct', earnings: 50},
+    { month: 'Nov', earnings: 75}
 ] ,
 digits:[
-    {month:'10:00',earnings:100},
-    {month:'11:00',earnings:100},
-    {month:'12:00',earnings:100},
-    {month:'13:00',earnings:100},
-    {month:'14:00',earnings:100},
+    {month:'10:00',earnings:60},
+    {month:'11:00',earnings:85},
+    {month:'12:00',earnings:35},
+    {month:'13:00',earnings:10},
+    {month:'14:00',earnings:30},
     {month:'15:00',earnings:100}]
 
 ,

@@ -14,7 +14,7 @@ function Forgotpassword({navigation}) {
             <Buttonx navigation={navigation}/>
       </View>
       <View style={[flex(3),{width:widthValue(1)}]}>
-           <Logincards name={'Forgot'} secondname={'Password'} showpassword={false} showconsumer={true}/>
+           <Logincards name={'Forgot'} secondname={'Password'} showconsumer={true} heightval={true}/>
       </View>
       <View style={[flex(2),{width:widthValue(1)},styles.allCenter]}>
            <TouchableOpacity onPress={handledashboard}>

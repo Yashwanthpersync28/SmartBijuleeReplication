@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View,Text,ScrollView  } from 'react-native'
 import Inputbox from '../../Loginpage/CommonCards/Inputbox';
 import { flex } from '../../../../styles/Styles';
-import Email from './Email';
+import Email from './SignupInputbox';
 import Passwordinputbox from '../../Loginpage/CommonCards/Passwordinputbox';
 
 const SignupCardcomponents = () => {

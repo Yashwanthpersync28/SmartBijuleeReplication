@@ -6,7 +6,8 @@ import Buttonx from '../Loginpage/CommonCards/Buttonx';
 function Otp({navigation}) {
    
       let handledashboard=()=>{
-        navigation.navigate('drawernavigation')
+        navigation.navigate('drawer')
+        // drawernavigation
       }
   return (
    

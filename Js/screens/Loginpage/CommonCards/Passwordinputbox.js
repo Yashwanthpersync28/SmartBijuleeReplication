@@ -1,49 +1,68 @@
 import React,{useState} from 'react'
 import { View ,Text, TextInput, TouchableOpacity} from 'react-native'
-import { bgColor,borderColor, borderWidth, flex, fontSize, marginPosition, padding, paddingPosition, position, radius, styles  } from '../../../../styles/Styles'
+import { bgColor,borderColor, borderWidth,widthValue, flex, fontSize, heightValue, marginPosition, padding, paddingPosition, position, radius, styles  } from '../../../../styles/Styles'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
+import { KeyboardAvoidingView } from 'react-native'
 const Passwordinputbox = ({val,name,onFocus,focuss,onBlur}) => {
-  let [eyeshow,seteyeshow]=useState(true);
-  let handlepassword=(pass)=>{
+ 
+  const [eyeshow, setEyeshow] = useState(true);
+
+  const toggleEyeVisibility = () => {
+    setEyeshow(!eyeshow);
+  };
+  // let handlepassword=(pass)=>{
     
-    const hasLetter = /[a-zA-Z]/.test(pass);
-    const hasNumber = /\d/.test(pass);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
-    const uppercaseRegex = /[A-Z]/.test(pass);
-     if(pass.length>8){
-      setpasslength(true)
-     }
-     else{
-      setpasslength(false)
-     }
-      if(hasLetter && uppercaseRegex){
-        setpasswordcase(true)
-      }
-      else{
-        setpasswordcase(false)
-      }
-      if(hasNumber && hasSpecialChar){ 
-        setpasswordsymbol(true) 
+  //   const hasLetter = /[a-zA-Z]/.test(pass);
+  //   const hasNumber = /\d/.test(pass);
+  //   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+  //   const uppercaseRegex = /[A-Z]/.test(pass);
+  //    if(pass.length>8){
+  //     setpasslength(true)
+  //    }
+  //    else{
+  //     setpasslength(false)
+  //    }
+  //     if(hasLetter && uppercaseRegex){
+  //       setpasswordcase(true)
+  //     }
+  //     else{
+  //       setpasswordcase(false)
+  //     }
+  //     if(hasNumber && hasSpecialChar){ 
+  //       setpasswordsymbol(true) 
         
-      }
-      else{
-        setpasswordsymbol(false)
-      }
+  //     }
+  //     else{
+  //       setpasswordsymbol(false)
+  //     }
     
-  }
+  // }
   return (
-    <View style={[flex(1),padding(15),styles.column,marginPosition(0,0,0),radius(20),bgColor(focuss)]}> 
-    <View style={[styles.row]}>
-      <Text style={[fontSize(13),styles.gr]}>{name}</Text>
-      
+    
+       
+<View>
+      <View style={[bgColor(focuss),{ height: heightValue(11), width: widthValue(1.6) }, padding(0, 10, 20, 10, 20), styles.column, marginPosition(0, 0, 3), radius(20), ]}>
+        <Text style={[fontSize(13), styles.gr]}>Password</Text>
+        <View style={[styles.row, { alignItems: 'center' },borderColor('green'),borderWidth(0,0,0,0.8)]}>
+          <TextInput onBlur={onBlur} onFocus={onFocus}
+            secureTextEntry={eyeshow}
+            style={[
+              {flex: 1,fontSize: 18, padding:0, textAlignVertical: 'top' ,paddingVertical: 3,color:'white' }
+              // Add any additional styles you need
+            ]}
+          />
+          <TouchableOpacity onPress={toggleEyeVisibility}>
+            <FontAwesome5Icon
+              name={eyeshow ? 'eye-slash' : 'eye'}
+              style={[styles.gray, fontSize(20)]}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-      <TextInput secureTextEntry={eyeshow} style={[borderWidth(0,0,0,1),borderColor('green'),marginPosition(0,0,10)]} onBlur={onBlur} onFocus={onFocus}/>
-      
-      <TouchableOpacity>
-        <FontAwesome5Icon name={eyeshow ?'eye-slash':'eye'} style={[styles.gray,fontSize(20),position(-40,0,0,200)]} onPress={()=>seteyeshow(!eyeshow)}/>
-   </TouchableOpacity>
-     <Text></Text>
-   </View>
+    </View>
+  
+  
+
   )
 }
 

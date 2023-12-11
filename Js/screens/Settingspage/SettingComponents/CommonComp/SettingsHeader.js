@@ -1,16 +1,16 @@
 import React from 'react'
 import { View ,Text} from 'react-native'
-import { flex, fontSize, marginPosition, styles } from '../../../../../styles/Styles'
+import { flex, fontSize, heightValue, lineHeight, marginPosition, styles } from '../../../../../styles/Styles'
 
-const SettingsHeader = () => {
+const SettingsHeader = ({name,heading,details}) => {
   return (
-    <View>
+    <View style={[{height:heightValue(8)}]}>
         <View style={[styles.row]}>
-            <Text style={[styles.white,fontSize(18)]}>Manage</Text>
-            <Text style={[styles.green,fontSize(18),marginPosition(0,0,0,5)]}>Multiple Accounts</Text>
+            <Text style={[styles.white,fontSize(20)]}>{name}</Text>
+            <Text style={[styles.green,fontSize(20),marginPosition(0,0,0,5)]}>{heading}</Text>
         </View>
         <View>
-            <Text style={[styles.white,fontSize(14),marginPosition(10)]}>Add here your different accounts linked with your mobile Number</Text>
+            <Text style={[styles.white,fontSize(15),marginPosition(10),lineHeight(20)]}>{details}</Text>
         </View>
     </View>
   )

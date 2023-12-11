@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, View ,Text} from 'react-native'
-import { flex, fontSize, heightValue, radius, styles, widthValue } from '../../../../../styles/Styles'
+import { TouchableOpacity, View ,Text,ScrollView} from 'react-native'
+import { flex, fontSize, heightValue, marginPosition, padding, radius, styles, widthValue } from '../../../../../styles/Styles'
 import BackButton from '../CommonComp/BackButton'
-import Cradstwo from '../ProfileInformation/Cardstwo'
 import Informationcards from '../ProfileInformation/Informationcards'
 import SettingsHeader from '../CommonComp/SettingsHeader'
-import Passwordinputbox from '../../../Loginpage/CommonCards/Passwordinputbox'
+import CheckPassword from './CheckPassword'
 
 const Changepass = () => {
     
@@ -15,18 +14,20 @@ const Changepass = () => {
           <View style={[{height:heightValue(2)}]}>         
                    <BackButton/>
                   <Informationcards height={4}/>
-                  <SettingsHeader />
+                  <SettingsHeader name={'Reset'} heading={'Password'} details={'Please change your password every months for your account safety and security'} />
          </View>
-         <View style={[{height:heightValue(2.8)}]}>
-             
+         
+         <View style={[{height:heightValue(2.8)},padding(20),marginPosition(10)]}>
+             <CheckPassword/>
          </View>
-         <View style={[{height:heightValue(8)},styles.allCenter]}>
+         <View style={[{height:heightValue(10)},styles.allCenter]}>
             <TouchableOpacity style={[{height:40,width:100},styles.bgdashblue,styles.allCenter,radius(30)]}>
                 <Text style={[styles.white,fontSize(15)]}>Submit</Text>
             </TouchableOpacity>
          </View> 
+       
      </View> 
-     
+  
    </View>
   )
 }

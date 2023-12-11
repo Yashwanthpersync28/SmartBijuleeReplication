@@ -5,33 +5,33 @@ import Header from '../CommonComponents/Cards/Header';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import Menu from '../CommonComponents/Cards/Menu';
 import Faqbuttons from './Buttoncomponent/Faqbuttons';
+import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper';
 
 const AllFAQ = ({ navigation }) => {
   let heading = 'Top';
   let continueprop = 'Questions';
   let details = 'Have Queries?';
   let temp=[
-    { id: 1, heading: 'Item 1', details: 'Details for Item 1', lowerarrow: false },
-    { id: 2, heading: 'Item 2', details: 'Details for Item 2', lowerarrow: false },
-    { id: 3, heading: 'Item 3', details: 'Details for Item 3', lowerarrow: false },
-    { id: 4, heading: 'Item 4', details: 'Details for Item 4', lowerarrow: false },
-    { id: 5, heading: 'Item 5', details: 'Details for Item 5', lowerarrow: false },
-    { id: 6, heading: 'Item 6', details: 'Details for Item 6', lowerarrow: false },
-    { id: 7, heading: 'Item 7', details: 'Details for Item 7', lowerarrow: false },
-    { id: 8, heading: 'Item 8', details: 'Details for Item 8', lowerarrow: false },
+    { id: 1, heading: 'How electric tariff is determained? Who determines the electricity tarrif?', details: 'Details for Item 1', lowerarrow: false },
+    { id: 2, heading: 'What is Transmission & Distribution (T&D) loss?', details: 'Details for Item 2', lowerarrow: false },
+    { id: 3, heading: 'What measures APDCL has taken to reduce Technical & Commercial loss?', details: 'Details for Item 3', lowerarrow: false },
+    { id: 4, heading: 'Has the T&D loss of APDCL decresed in the last few years? What is the T&D loss target fixed by AERC?', details: 'Details for Item 4', lowerarrow: false },
+    { id: 5, heading: 'Why the power tarrif of Assam is higher than most of the states of india?', details: 'Details for Item 5', lowerarrow: false },
+    { id: 6, heading: 'What are the reasons of Power failure/frequent tripping? What measures have APDCL taken to reduce it?', details: 'Details for Item 6', lowerarrow: false },
+    { id: 7, heading: 'Why APDCL does not give advance notice for Load Shedding/tripping', details: 'Details for Item 7', lowerarrow: false },
   ]
   const [displayedItems, setDisplayedItems] = useState(temp);
-
+  const [count,setcount]=useState(0);
   const showAllItems = () => {
     setDisplayedItems(temp);
   };
 
   const showFirstFourItems = () => {
-    setDisplayedItems(temp.slice(0,4))
+    setDisplayedItems(temp.slice(0,3))
   };
 
   const showLastFourItems = () => {
-    setDisplayedItems(temp.slice(-4))
+    setDisplayedItems(temp.slice(-3))
   };
 
   const toggleLowerArrow = (itemId) => {
@@ -41,7 +41,8 @@ const AllFAQ = ({ navigation }) => {
   };
 
   return (
-    <View style={[styles.bglightblack, flex(1)]}>
+    <DrawerScreenWrapper>
+    <View style={[styles.bglightblack, {height:heightValue(1),width:widthValue(1)}]}>
       <Menu navigation={navigation} />
       <ScrollView>
         <Header heading={heading} continueprop={continueprop} details={details} />
@@ -78,6 +79,7 @@ const AllFAQ = ({ navigation }) => {
         </View>
       </ScrollView>
     </View>
+    </DrawerScreenWrapper>
   );
 };
 

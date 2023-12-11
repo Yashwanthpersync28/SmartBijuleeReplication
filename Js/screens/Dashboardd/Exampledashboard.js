@@ -9,7 +9,7 @@ import ConsumerTextinputComp from '../TextInput/ConsumerTextinputComp'
 import { obj } from '../GraphData/Graphdatas'
 import Customhistory from '../Consumption Log/History/CustomHistory/Customhistory'
 import Axisgraph from '../Consumption Log/History/Axisgraph'
-const Exampledashboard = ({showpagination,showCustom,openfunc,marginss,sendtochild}) => {
+const Exampledashboard = ({showpagination,showCustom,openfunc,marginss,sendtochild,hidecomp}) => {
   let [clickedcustom,setclickedcustom]=useState(false);
     let swiper=useRef();
     const [activeIndex, setActiveIndex] = useState(0);
@@ -18,12 +18,16 @@ const Exampledashboard = ({showpagination,showCustom,openfunc,marginss,sendtochi
         if (swiper.current) {
           swiper.current.scrollBy(index - activeIndex, true);
           setActiveIndex(index);
+         
+         setclickedcustom(false)
+
         }
       };
 let handlecustom=()=>{
-  sendtochild(true)
+  // sendtochild(true)
   setclickedcustom(true)
   openfunc(true);
+  // handleToggle(-2)
   // setActiveIndex();
 
 

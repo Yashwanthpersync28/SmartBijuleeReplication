@@ -3,11 +3,13 @@ import { View,Text, TouchableOpacity } from 'react-native'
 import { flex, fontSize, heightValue, marginPosition, position, radius, styles, widthValue } from '../../../styles/Styles'
 import Header from '../CommonComponents/Cards/Header'
 import Menu from '../CommonComponents/Cards/Menu'
+import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper'
 const Notifications = ({navigation}) => {
     let heading="Be";
     let continueprop="Notified";
     let details="Engage with the Utility via notifictions";
   return (
+   <DrawerScreenWrapper>
    <View style={[flex(1),styles.bglightblack]}>
       <Menu navigation={navigation}/>
          <Header heading={heading} continueprop={continueprop} details={details} columnwise={false}/>
@@ -31,6 +33,7 @@ const Notifications = ({navigation}) => {
          </TouchableOpacity>
          </View>
    </View>
+   </DrawerScreenWrapper>
 
   )
 }

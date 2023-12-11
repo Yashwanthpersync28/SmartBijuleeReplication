@@ -33,15 +33,16 @@ const History = ({navigation}) => {
     <ScrollView> 
       <Header  continueprop={comp} details={details} columnwise={true} display={true}/>
     <View style={[{height:heightValue(1.9),width:widthValue(1.1)},marginPosition(0,0,0,'5%'),radius(15),styles.allCenter]}>
-        <Exampledashboard showpagination={false} showCustom={true} showborder={true} openfunc={cus} marginss={true} sendtochild={fromchild}/>
-      
+        <Exampledashboard showpagination={false} showCustom={true} showborder={true} openfunc={cus} marginss={true} sendtochild={fromchild} hidecomp={hidecomp}/>
+      {hidecomp ? null :
         <View style={[styles.white,marginPosition('0%',0,'3%',0),styles.allCenter]}>
         <Text style={[styles.green,fontSize(11)]}>? X-axis Hours and Y-axis Consumption</Text>
             <Text style={[styles.white,fontSize(11)]}>(Click on the chart to see the value)</Text>
-        </View>
+        </View>}
     </View>
+    {hidecomp ? null :  <>
    <Cardcolors name={'Total'} secondname={'Consumption'} units={'units'} time={''} monthshow={false} value={'0'} month={true} right={true}/>
-   <Oppositecolors/>
+   <Oppositecolors/></>}
     </ScrollView>
   </View>
   </DrawerScreenWrapper>
