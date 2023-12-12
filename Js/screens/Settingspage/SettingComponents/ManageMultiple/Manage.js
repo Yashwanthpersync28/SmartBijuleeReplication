@@ -19,9 +19,9 @@ const Manage = () => {
               <SettingsHeader name={'Manage'} heading={'Multiple Accounts'} details={"Add here your different accounts linked with your same mobile number"}/>
         </View>
             <View style={[{width:widthValue(1.1),height:heightValue(1.4)},styles.allCenter,marginPosition(30)]}>
-              {showconsumerpage ? <Logincards showconsumer={true} name={'Consumer'} secondname={'Number'} heightval={true}/> :  <ListofMembers Goto={Consumernav}/>}
+              {showconsumerpage ? <Logincards showconsumer={true} name={'Consumer'}  heightval={true}/> :  <ListofMembers Goto={Consumernav}/>}
               {showconsumerpage ? <>
-               <View style={[styles.bgdashblue,radius(30),{height:heightValue(18),width:widthValue(3.2)},styles.allCenter,marginPosition(20)]}>
+               <View style={[styles.bgdashblue,radius(30),{height:heightValue(18),width:widthValue(3)},styles.allCenter,marginPosition(20)]}>
                 <TouchableOpacity>
                     <Text style={[styles.white]}>Generate OTP</Text>
                 </TouchableOpacity>

@@ -5,8 +5,9 @@ import { stackarray } from './screens/StackNavigation/Stackdata/Stackdatas';
 // import codePush from "react-native-code-push";
 import DrawerNavigation from './screens/DrawerNavigation';
 import { Provider } from 'react-redux';
-import store, { persistor } from './Redux/store';
+
 import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './redux/store';
 // import { Provider } from 'react-redux';
 // import { store } from './Redux/Store/store';
 
@@ -17,8 +18,7 @@ function Appp() {
   return ( 
     <> 
     <Provider store={store}>
-    {/* <Provider store={store}> */}
-    {/* <PersistGate loading={null} persistor={persistor}> */}
+    <PersistGate loading={null} persistor={persistor}>
       <NavigationContainer>
   
          <Stack.Navigator>
@@ -33,8 +33,8 @@ function Appp() {
          </Stack.Navigator>
      
        </NavigationContainer>
-       {/* </PersistGate> */}
-       {/* </Provider> */}
+       </PersistGate>
+      
   </Provider>
   </>
   

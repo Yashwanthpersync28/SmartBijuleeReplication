@@ -6,26 +6,27 @@ import CardInfoone from './CardInfoone'
 import Cardinfortwo from './Cardinfotwo'
 import CardThree from './CardThree'
 import Thankyoupage from './Thankyoupage'
+import { useNavigation } from '@react-navigation/native'
 const FeedbackCard = () => {
   const [next, setNext] = useState(0);
   const [name, setName] = useState(1);
   const[submit,setsubmit]=useState(false);
   const [count,setcount]=useState(0)
  const [isDisabled,setIsDisabled]=useState(true)
+ const navigation=useNavigation()
   const getUserExperience = (a) => {
     setName(a);
   };
-  // const handlecount=()=>{
-  //   console.warn(name)
-  //   setcount(count+1)
-  //   }
-
-  // const handleCount = () => {
-  //   setNext(next + 1);
-  //   if(next===3){
-  //     setsubmit(!true)
-  //   }
-  // };
+ const handlecount=()=>{
+  if(count === 3){
+    navigation.navigate('Setting')
+  }
+  else{
+    setcount(count+1)
+  }
+  
+  
+ }
   return (
     <View style={[flex(1)]}>
          <View style={[styles.positionRelative,styles.bggreen,{height:heightValue(3.2),width:widthValue(1.2)},radius(30)]}></View>
@@ -46,8 +47,9 @@ const FeedbackCard = () => {
                 </TouchableOpacity>
             </View> 
             </> :null}
+            
             <View style={[{width:widthValue(3),height:heightValue(17)},{backgroundColor:isDisabled ?'#077227':'#29292e'},styles.allCenter,radius(30)]}>
-                <TouchableOpacity   onPress={()=>setcount(count+1)}>
+                <TouchableOpacity   onPress={handlecount}>
                     <View style={[styles.row]}>
                           <Text style={[styles.white,fontSize(17)]}>Next</Text>
                          <FontAwesome5Icon name='chevron-right' style={[styles.white,fontSize(15),marginPosition(4,0,0,5)]}/>

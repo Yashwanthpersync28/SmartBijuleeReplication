@@ -1,37 +1,40 @@
 import React from 'react'
-import { View,Text,TouchableOpacity, StyleSheet } from 'react-native'
-import { fontSize, heightValue, styles, widthValue ,marginPosition,radius, paddingPosition, setradius,setspace} from '../../../styles/Styles'
+import { View,Text,TouchableOpacity } from 'react-native'
+import { fontSize, heightValue, styles, widthValue ,marginPosition,radius , setradius,setspace} from '../../../styles/Styles'
 import Swiper from 'react-native-swiper'
-import Ex from './Ex'
 import Todaycomp from './Todaycomp'
-import { useRef ,useState} from 'react';
-import ConsumerTextinputComp from '../TextInput/ConsumerTextinputComp'
+import { useRef ,useState,useEffect} from 'react';
 import { obj } from '../GraphData/Graphdatas'
 import Customhistory from '../Consumption Log/History/CustomHistory/Customhistory'
 import Axisgraph from '../Consumption Log/History/Axisgraph'
-const Exampledashboard = ({showpagination,showCustom,openfunc,marginss,sendtochild,hidecomp}) => {
+
+const Exampledashboard = ({showpagination, showCustom, openfunc, marginss, sendtochild}) => {
   let [clickedcustom,setclickedcustom]=useState(false);
     let swiper=useRef();
     const [activeIndex, setActiveIndex] = useState(0);
+    
+  
     const handleToggle = (index) => {
       setclickedcustom(false)
         if (swiper.current) {
           swiper.current.scrollBy(index - activeIndex, true);
           setActiveIndex(index);
-         
+          sendtochild(false)
          setclickedcustom(false)
 
         }
       };
 let handlecustom=()=>{
-  // sendtochild(true)
+  sendtochild(true)
   setclickedcustom(true)
   openfunc(true);
+  setActiveIndex(0)
   // handleToggle(-2)
-  // setActiveIndex();
+  setActiveIndex(0);
 
 
 }
+
   return (
     <View style={[{height:heightValue(2),width:widthValue(1.1)}]}>
 
@@ -101,10 +104,3 @@ let handlecustom=()=>{
 
 export default Exampledashboard
 
-
-// let stylescolor=StyleSheet.create({
-//     bgcolor: {
-//         fontSize: 20,
-//         color: conditionMet ? '#39763b' : '#ffffff',
-//       },
-// })

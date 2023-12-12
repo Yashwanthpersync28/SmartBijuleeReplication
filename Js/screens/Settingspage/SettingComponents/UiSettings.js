@@ -7,13 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 
 const UiSettings = ({arr,name,secondname}) => {
   const navigation=useNavigation();
-  let handlenavigation=(screen)=>{
 
+  let handlenavigation=(screen)=>{
      navigation.navigate(screen)
-    // console.log('hi');
-     
   }
-  // onPress={()=>handlenavigation(it.navigationdata)}
   return (
             <>
                    <View style={[{width:widthValue(1.1)},marginPosition(20,0,10)]}  >
@@ -39,7 +36,7 @@ const UiSettings = ({arr,name,secondname}) => {
                                     <Text style={[styles.gray,fontSize(13)]}>{it.detail}</Text>  
                                   </View>
                                   <View style={[flex(1),styles.allCenter]}>
-                                       <FontAwesome5Icon name='chevron-right' style={[fontSize(20)]}/>
+                                       <FontAwesome5Icon name='chevron-right' style={[fontSize(20),styles.gray]}/>
                                  </View>
                              </View>
                       </TouchableOpacity>

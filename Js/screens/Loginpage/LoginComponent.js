@@ -4,6 +4,7 @@ import { flex, heightValue, styles, widthValue ,heightwidth,marginPosition, radi
 import Logincards from './CommonCards/Logincards';
 // import { loginApi } from '../../api/auth/Post';
 import { useDispatch, useSelector } from 'react-redux';
+import { userVerifyApi } from '../../api/authApi';
 // import DeviceInfo, { getAndroidId } from 'react-native-device-info';
 // import { otpVerifyApi } from '../../api/authApi';
 
@@ -19,22 +20,23 @@ const LoginComponent = ({navigation}) => {
   //   });
   //   dispatch(increment());
   // }
-// const login= async ()=>{
-//   const loginResp = await dispatch(otpVerifyApi({
-//       "loginID": "C000003",
-//       "password": "Test@0123",
-//       "confirmation": "Y",
-//       "deviceInfo": {
-//         "deviceID": "122323",
-//         "deviceMake": "android",
-//         "deviceOS": "android",
-//         "deviceOSVersion": "12.1"
-//       }
-    
-//   }));
-//   console.log("loginResp",loginResp);
-
-// }
+  const login= async ()=>{
+    console.log("kuygf");
+    const loginResp = await dispatch(userVerifyApi({
+        "loginID": "C000003",
+        "password": "Test@0123",
+        "confirmation": "Y",
+        "deviceInfo": {
+          "deviceID": "122323",
+          "deviceMake": "android",
+          "deviceOS": "android",
+          "deviceOSVersion": "12.1"
+        }
+      
+    }));
+    console.log("loginResp",loginResp);
+  
+  }
 const handlesubmit=()=>{
   navigation.navigate('otp');
   
@@ -56,7 +58,7 @@ const handlesubmit=()=>{
      </View>
      <View style={[flex(1),styles.centerHorizontal]}>
         <View style={[marginPosition(40),flex(0.4),{width:widthValue(2.6)},styles.bggreyish,radius(30),styles.allCenter]}>
-            <TouchableOpacity onPress={handlesubmit}>
+            <TouchableOpacity onPress={login}>
                <Text style={[styles.white,fontSize(20)]}>Send Otp</Text>
             </TouchableOpacity>
         </View>

@@ -11,7 +11,7 @@ import Contactus from './Contactus';
 // import DashboardTwo from './DashboardTwo';
 import Dashboardone from './Dashboardd/Dashboardone';
 import CustomDrawer from './Drawer/CustomDrawer';
-import Ex from './Dashboardd/Ex';
+
 import Comparison from './Consumption Log/Comparisonfd/Comparison';
 import History from './Consumption Log/History/History';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';

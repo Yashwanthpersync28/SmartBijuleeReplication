@@ -1,7 +1,7 @@
 import React from 'react';
 import Appp from './Js/Appp';
 import Dummy from './Js/screens/Loginpage/Dummy';
-
+import CodePush from 'react-native-code-push';
 
 
 
@@ -18,4 +18,4 @@ function App() {
 
 
 
-export default App;
+export default CodePush(App);

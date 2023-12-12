@@ -32,8 +32,8 @@ const History = ({navigation}) => {
       <Menu navigation={navigation}/>
     <ScrollView> 
       <Header  continueprop={comp} details={details} columnwise={true} display={true}/>
-    <View style={[{height:heightValue(1.9),width:widthValue(1.1)},marginPosition(0,0,0,'5%'),radius(15),styles.allCenter]}>
-        <Exampledashboard showpagination={false} showCustom={true} showborder={true} openfunc={cus} marginss={true} sendtochild={fromchild} hidecomp={hidecomp}/>
+    <View style={[{height:heightValue(1.9),width:widthValue(1.1)},marginPosition(5,0,0,20),radius(15),styles.allCenter]}>
+        <Exampledashboard showpagination={false} showCustom={true} showborder={true} openfunc={cus} marginss={true} sendtochild={fromchild} />
       {hidecomp ? null :
         <View style={[styles.white,marginPosition('0%',0,'3%',0),styles.allCenter]}>
         <Text style={[styles.green,fontSize(11)]}>? X-axis Hours and Y-axis Consumption</Text>

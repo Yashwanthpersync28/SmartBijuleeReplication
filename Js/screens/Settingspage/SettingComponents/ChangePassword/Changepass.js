@@ -13,7 +13,7 @@ const Changepass = () => {
     <View style={[{width:widthValue(1.1)},flex(1)]}>
           <View style={[{height:heightValue(2)}]}>         
                    <BackButton/>
-                  <Informationcards height={4}/>
+                  <Informationcards height={5}/>
                   <SettingsHeader name={'Reset'} heading={'Password'} details={'Please change your password every months for your account safety and security'} />
          </View>
          
@@ -21,7 +21,7 @@ const Changepass = () => {
              <CheckPassword/>
          </View>
          <View style={[{height:heightValue(10)},styles.allCenter]}>
-            <TouchableOpacity style={[{height:40,width:100},styles.bgdashblue,styles.allCenter,radius(30)]}>
+            <TouchableOpacity style={[{height:40,width:120},styles.bgdashblue,styles.allCenter,radius(30)]}>
                 <Text style={[styles.white,fontSize(15)]}>Submit</Text>
             </TouchableOpacity>
          </View> 
