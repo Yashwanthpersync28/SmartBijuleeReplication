@@ -15,8 +15,8 @@ const UiSettings = ({arr,name,secondname}) => {
             <>
                    <View style={[{width:widthValue(1.1)},marginPosition(20,0,10)]}  >
                       <View style={[styles.row]}>
-                           <Text style={[styles.white,fontSize(20)]}>{name}</Text>
-                           <Text style={[styles.green,fontSize(20),marginPosition(0,0,0,5)]}>{secondname}</Text>
+                           <Text style={[styles.white,fontSize(17)]}>{name}</Text>
+                           <Text style={[styles.green,fontSize(17),marginPosition(0,0,0,5)]}>{secondname}</Text>
                      </View>
                    {arr.map((it,index)=>{
                      return( 
@@ -29,14 +29,14 @@ const UiSettings = ({arr,name,secondname}) => {
                                   </View>
                                    <View style={[flex(3),styles.column,styles.centerVertical]}>
                                        <View style={[styles.row]}>
-                                          <Text style={[styles.white,fontSize(18)]}>{it.heading}</Text>
-                                          <Text style={[styles.green,marginPosition(0,0,0,5),fontSize(18)]}>{it.sub}</Text>
+                                          <Text style={[styles.white,fontSize(16)]}>{it.heading}</Text>
+                                          <Text style={[styles.green,marginPosition(0,0,0,5),fontSize(16)]}>{it.sub}</Text>
                                        </View>
                            
-                                    <Text style={[styles.gray,fontSize(13)]}>{it.detail}</Text>  
+                                    <Text style={[styles.gray,fontSize(12)]}>{it.detail}</Text>  
                                   </View>
                                   <View style={[flex(1),styles.allCenter]}>
-                                       <FontAwesome5Icon name='chevron-right' style={[fontSize(20),styles.gray]}/>
+                                       <FontAwesome5Icon name='chevron-right' style={[fontSize(16),styles.gray]}/>
                                  </View>
                              </View>
                       </TouchableOpacity>

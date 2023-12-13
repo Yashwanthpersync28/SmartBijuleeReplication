@@ -13,18 +13,18 @@ const ListofMembers = ({Goto}) => {
                 <FontAwesome5Icon name='plus' onPress={()=>Goto(true)}/>
             </View>
                 <View style={[styles.row]}>
-                    <Text style={[styles.white,fontSize(18)]}>List of </Text>
-                    <Text style={[styles.green,fontSize(18),marginPosition(0,0,0,5)]}>Accounts Handles</Text>
+                    <Text style={[styles.white,fontSize(17)]}>List of </Text>
+                    <Text style={[styles.green,fontSize(17),marginPosition(0,0,0,5)]}>Accounts Handles</Text>
                  </View> 
                      <View style={[styles.spaceBetween,styles.row,marginPosition(20),borderColor(styles.gr),borderWidth(0,0,0,1)]}>     
                               <View style={[styles.row,marginPosition(0,0,5)]}>
-                                  <Text style={[styles.white,fontSize(16),marginPosition(0,15)]}>SI NO.</Text>
-                                  <Text style={[styles.white,fontSize(16),marginPosition(0,15)]}>Name</Text>
+                                  <Text style={[styles.white,fontSize(13),marginPosition(0,15)]}>SI NO.</Text>
+                                  <Text style={[styles.white,fontSize(13),marginPosition(0,15)]}>Name</Text>
 
                              </View>
                              <View style={[styles.row,marginPosition(0,0,5)]}>
-                                    <Text style={[styles.white,fontSize(16),marginPosition(0,15)]}>Consumer ID</Text>
-                                     <Text style={[styles.white,fontSize(16),marginPosition(0,0,0,10)]}>Action</Text>
+                                    <Text style={[styles.white,fontSize(13),marginPosition(0,15)]}>Consumer ID</Text>
+                                     <Text style={[styles.white,fontSize(13),marginPosition(0,0,0,10)]}>Action</Text>
 
                              </View>
 

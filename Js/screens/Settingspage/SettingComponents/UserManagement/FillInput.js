@@ -16,7 +16,7 @@ const FillInput = ({name,getfromchild}) => {
   return (
     <View style={[{height:heightValue(10),width:widthValue(1.2),paddingVertical: 5,},padding(0,10,20,10,20),styles.column,marginPosition(0,0,0),radius(20)]}> 
       <Text style={[fontSize(13),styles.gr]}>{name}</Text>
-      <TextInput onChangeText={(val)=>getfromchild(val.length,val)} style={[borderWidth(0,0,0,1),borderColor('green'),marginPosition(0,0,15),fontSize(15),padding(0),{textAlignVertical:"center"}]}  />  
+      <TextInput maxLength={10} onChangeText={(val)=>getfromchild(val.length,val)} style={[styles.white,borderWidth(0,0,0,1),borderColor('green'),marginPosition(0,0,15),fontSize(15),padding(0),{textAlignVertical:"center"}]}  />  
        <View style={[styles.centerHorizontal]}>
        <Text style={[styles.red,fontSize(12)]}>{error}</Text>
        </View>

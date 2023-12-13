@@ -9,7 +9,7 @@ export const ApiManager = (token, { method, url, body, contentType }, addHeaders
                 method, url, body
             }
 
-            console.log("API Manager Request Log", token, token, data);
+            console.log("API Manager Request Log", url, token, body, method);
             let formHeaders;
             if (contentType == "form") {
                 formHeaders = { 'Content-Type': 'multipart/form-data' }
@@ -17,10 +17,10 @@ export const ApiManager = (token, { method, url, body, contentType }, addHeaders
             try {
                 let resp = await apiClient[method](url, token, body, contentType == "form" ? formHeaders : addHeaders,);
                 console.log("ApiManager Response ", resp);
-                console.log("ApiManager Response ", JS/ON.parse(JSON.stringify(resp)));
+                console.log("ApiManager Response ", JSON.parse(JSON.stringify(resp)));
                 return resolve(resp);
             } catch (err) {
-                console.log("API Manager Catch Error", err.response);
+                console.log("API Manager Catch Error", err);
                 if (err.response.status == 403) {
                     // dispatch(clearToken());
                     console.log("API Manager Catch Error", err);

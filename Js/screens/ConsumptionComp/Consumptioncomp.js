@@ -1,7 +1,7 @@
 import React from 'react'
 import {View,Text, Dimensions} from 'react-native'
 import { styles,heightValue,widthValue,fontSize, marginPosition } from '../../../styles/Styles';
-import { VictoryBar,VictoryChart,VictoryTheme } from 'victory-native';
+import { VictoryBar} from 'victory-native';
 const Consumptioncomp = ({heading}) => {
     let data=[{
         month:1,
@@ -20,8 +20,6 @@ const Consumptioncomp = ({heading}) => {
             
             <VictoryBar horizontal data={data} x='month' y='earnings'
                     width={widthValue(0.9)} height={heightValue(17)} style={{ data: { fill: '#3c3c42', height: 100 } }} barWidth={heightValue(50)} cornerRadius={{ top: 8, bottom: 8 }}></VictoryBar>
-
-           
             </View>
         </View>
   )

@@ -10,12 +10,12 @@ const Oppositecolors = () => {
     let {height,width}=Dimensions.get('window') 
 
   return (
-    <View style={[{height:heightValue(7.3),width:widthValue(1.1)},marginPosition('3%',0,'15%','5%'),styles.bgdashblue,radius(10)]}>
+    <View style={[{height:heightValue(7.3),width:widthValue(1.1)},marginPosition('3%',0,'5%','5%'),styles.bgdashblue,radius(10)]}>
     <View style={[styles.row]}>
-    <View style={[styles.column,{width:widthValue(3.5),height:heightValue(7)},styles.allCenter]}>
+    <View style={[styles.column,{width:widthValue(3.5),height:heightValue(7)},styles.centerVertical,marginPosition(0,0,0,15)]}>
        <FontAwesome5Icon name='chevron-up' style={[styles.lightgreen,fontSize(15)]}/>
-        <Text style={[styles.green,fontSize(35)]}>0</Text>
-        <Text style={[styles.white]}>Units</Text>
+        <Text style={[styles.green,fontSize(25)]}>0</Text>
+        <Text style={[styles.white,fontSize(12)]}>Units</Text>
         </View>  
          <View style={[styles.column]}>
              

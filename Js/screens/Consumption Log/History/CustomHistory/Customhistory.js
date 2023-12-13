@@ -41,7 +41,7 @@ const [enddate, setenddate] = useState('');
       setenddate(formattedEndDate);
     };
   return (
-    <View style={[flex(1),{marginTop:heightValue(70),height:heightValue(5)}]}>
+    <View style={[flex(1),{marginTop:heightValue(70),height:heightValue(3)}]}>
         <View style={[{height:heightValue(29),width:widthValue(1.1)},styles.row]}>
             <Text style={[styles.white,fontSize(20)]}>Start</Text>
             <Text style={[styles.green,{marginLeft:5},fontSize(20)]}>Date</Text>
@@ -49,36 +49,27 @@ const [enddate, setenddate] = useState('');
         { clickedcalender ? 
         <Calendarcomp onClose={(selecteddate,today,a) => togglecalendar(selecteddate, new Date().toISOString().split('T')[0], false)}/>
           :
-
-        <View style={[{height:heightValue(18),width:widthValue(1.1)},styles.bgdashblue,styles.row,radius(5),styles.centerHorizontal]}>
-           <TouchableOpacity style={[styles.centerHorizontal]} onPress={()=>setclickedcalender(true)}>
-           {/* <MaterialIcons name='today' style={[styles.white,marginPosition(0,'5%',0,'7%')]}/> */}
-
+      <TouchableOpacity onPress={()=>setclickedcalender(true)}>
+        <View style={[{height:heightValue(18),width:widthValue(1.1)},styles.bgdashblue,styles.row,radius(5),styles.centerHorizontal]} >
+           <TouchableOpacity style={[styles.centerHorizontal]}>
            <FontAwesome5Icon name='calendar' style={[styles.white,marginPosition(0,'5%',0,'7%'),fontSize(15)]}/>
            </TouchableOpacity>
-           {/* <Image style={[heightwidth(20,30)]} src="https://img.icons8.com/material-outlined/24/FFFFFF/calendar--v1.png" alt="calendar--v1"/> */}
-            {/* <Text style={[styles.white,{marginLeft:5},fontSize(20)]}>Start Date: {selecteddate}</Text> */}
-            <Text style={[styles.green, { marginLeft: 5 }, fontSize(18)]}>Start Date {selecteddate}</Text>
-
-        </View>}
-        <ScrollView>
+            <Text style={[styles.green, { marginLeft: 5 }, fontSize(14)]}>Start Date {selecteddate}</Text>
+        </View>
+        </TouchableOpacity>}
         <View style={[{height:heightValue(27),width:widthValue(1.1)},styles.allCenter]}>
-            <Text style={[styles.red,fontSize(16)]}>Note: Please select the Start Date prior to 7 days</Text>
-            
+            <Text style={[styles.red,fontSize(13)]}>Note: Please select the Start Date prior to 7 days</Text>   
         </View>
         <View style={[{height:heightValue(18),width:widthValue(1.1)},styles.bgdashblue,styles.row,radius(5),styles.centerHorizontal]}>
            <FontAwesome5Icon name='calendar' style={[{color:"grey"},marginPosition(0,'5%',0,'7%'),fontSize(15)]}/>
-           {/* <Image style={[heightwidth(20,30)]} src="https://img.icons8.com/material-outlined/24/FFFFFF/calendar--v1.png" alt="calendar--v1"/> */}
-            {/* <Text style={[{color:"grey"},{marginLeft:5},fontSize(20)]}>End Date {enddate}</Text> */}
-            <Text style={[{ color: "grey" }, { marginLeft: 5 }, fontSize(18)]}>End Date {enddate}</Text>
-
+            <Text style={[{ color: "grey" }, { marginLeft: 5 }, fontSize(14)]}>End Date {enddate}</Text>
         </View>
         <View style={[{height:heightValue(20),width:widthValue(1.1),marginTop:heightValue(20)},styles.allCenter]}>
           <TouchableOpacity style={[{height:heightValue(20),width:widthValue(4)},styles.dashboardcolour,styles.allCenter,radius(25)]}>
             <Text style={[styles.white]}>Submit</Text>
           </TouchableOpacity>
         </View>
-        </ScrollView>
+        
         
     </View>
   )

@@ -27,8 +27,7 @@ const SignupPage = ({navigation}) => {
 
   const handleEmailChange = (text) => {
     setEmail(text);
-    // Add your email validation logic here
-    // Example: Check if the email is in a valid format
+    // Validations
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setEmailError(emailRegex.test(text) ? '' : 'Invalid email format');
     seterroroccured(emailRegex.test(text));
@@ -37,7 +36,7 @@ const SignupPage = ({navigation}) => {
   const handlePasswordChange = (text) => {
     setPassword(text);
 
-    // Password validation logic
+    // Password validation
     const minLength = 6;
     const hasNumber = /\d/.test(text);
     const hasSpecialSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(text);
@@ -64,16 +63,12 @@ const SignupPage = ({navigation}) => {
 
   const handleConfirmPasswordChange = (text) => {
     setConfirmPassword(text);
-    // Add your confirm password validation logic here
-    // Example: Check if it matches the password
     setConfirmPasswordError(text === password ? '' : 'Passwords do not match');
     seterroroccured(text === password)
   };
 
   const handleFullNameChange = (text) => {
     setFullName(text);
-    // Add your full name validation logic here
-    // Example: Check if the full name is not empty
     setFullNameError(text.trim() !== '' ? '' : 'Full name is required');
     seterroroccured(text.trim() !== '')
   };
@@ -91,11 +86,11 @@ const SignupPage = ({navigation}) => {
   return (
     <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>  
     <ScrollView> 
-    <Buttonx/>
+    <Buttonx navigation={navigation}/>
       <View style={[{height:heightValue(1.2)},styles.allCenter]}>
             <View style={[styles.bggreenish,{height:heightValue(50),width:widthValue(2.2)},radius(30,30,0,0)]}></View>
             <View style={[styles.bggreen,{height:heightValue(50),width:widthValue(1.7)},radius(30,30,0,0)]}></View>
-            <View style={[styles.bggreyish,{height:heightValue(1.4),width:widthValue(1.3)},radius(30),padding(25)]}>
+            <View style={[styles.bggreyish,{width:widthValue(1.3)},radius(30),padding(25)]}>
                 <View style={[styles.row,marginPosition(0,0,8)]}>
                     <Text style={[fontSize(20),styles.white]}>Create</Text>
                     <Text style={[fontSize(20),styles.green,marginPosition(0,0,0,5)]}>Account</Text>
@@ -208,36 +203,3 @@ const SignupPage = ({navigation}) => {
 }
 
 export default SignupPage
-const styless = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-  inputContainer: {
-    marginBottom: 20,
-  },
-  label: {
-    fontSize: 16,
-    marginBottom: 5,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
-    fontSize: 16,
-  },
-  errorText: {
-    color: 'red',
-    marginTop: 5,
-  },
-  button: {
-    backgroundColor: 'blue',
-    padding: 15,
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-  },
-});

@@ -2,10 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ApiManager } from '../ApiManager';
 import { loginendpoint } from '../../Constants';
-
+import { otpVerifyApi } from '../../Constants';
 // - - - - - Verify User API - - - - - //
 export const userVerifyApi = createAsyncThunk(loginendpoint,
     async (data, {dispatch,rejectWithValue}) => {
+        console.log("adjhbasdvasdv", data)
         const params = {
             ...data
         }
@@ -29,22 +30,23 @@ export const userVerifyApi = createAsyncThunk(loginendpoint,
         }   
 })
 // - - - - - Login User API - - - - - //
-export const otpVerifyApi = createAsyncThunk("login",
-    async (data, {rejectWithValue, dispatch}) => {
+export const userotpVerifyApi = createAsyncThunk(otpVerifyApi,
+    async (data, {dispatch, rejectWithValue}) => {
+        console.log("dvkchbasdkvjhabsdvkbjashdv", data)
         const params = {
             ...data
         }
         const request = {
             method: "post",
-            url:  "sales/login",
+            url: otpVerifyApi,
             body: {...data},
         };
 
-        const addHeaders = {
-            "x-app-id" : 4,
-        }
+        // const addHeaders = {
+        //     "x-app-id" : 4,
+        // }
         try{
-            const res = await dispatch(ApiManager({}, request, addHeaders));
+            const res = await dispatch(ApiManager({}, request,));
             return res;
         } catch(error){
             console.log("errorororor", error)

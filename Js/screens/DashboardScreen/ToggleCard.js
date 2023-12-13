@@ -1,14 +1,14 @@
 import React from 'react'
 import { View,Text,TouchableOpacity } from 'react-native'
-import { fontSize, heightValue, styles, widthValue ,marginPosition,radius , setradius,setspace} from '../../../styles/Styles'
+import { fontSize, heightValue, styles, widthValue ,marginPosition,radius , setradius,setspace, padding} from '../../../styles/Styles'
 import Swiper from 'react-native-swiper'
 import Todaycomp from './Todaycomp'
-import { useRef ,useState,useEffect} from 'react';
+import { useRef , useState } from 'react';
 import { obj } from '../GraphData/Graphdatas'
 import Customhistory from '../Consumption Log/History/CustomHistory/Customhistory'
 import Axisgraph from '../Consumption Log/History/Axisgraph'
 
-const Exampledashboard = ({showpagination, showCustom, openfunc, marginss, sendtochild}) => {
+const ToggleCard = ({showpagination, showCustom, openfunc, marginss, sendtochild}) => {
   let [clickedcustom,setclickedcustom]=useState(false);
     let swiper=useRef();
     const [activeIndex, setActiveIndex] = useState(0);
@@ -19,8 +19,8 @@ const Exampledashboard = ({showpagination, showCustom, openfunc, marginss, sendt
         if (swiper.current) {
           swiper.current.scrollBy(index - activeIndex, true);
           setActiveIndex(index);
-          sendtochild(false)
-         setclickedcustom(false)
+          // sendtochild(false)
+        //  setclickedcustom(false)
 
         }
       };
@@ -41,26 +41,26 @@ let handlecustom=()=>{
     <View style={[{height:heightValue(14),width:widthValue(1.1)},styles.allCenter]}>
    
 
-         <View style={[styles.bgdashblue,styles.allCenter,styles.row,setspace(marginss),marginPosition('3%',0,'0%',0),{height:heightValue(24),width:widthValue(1.1)},radius(10)]}>
+         <View style={[styles.bgdashblue,styles.allCenter,styles.row,setspace(marginss),marginPosition(8),{height:heightValue(24),width:widthValue(1.1)},radius(10)]}>
         {showCustom ? 
          <TouchableOpacity onPress={handlecustom}>
           
-            <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: clickedcustom ? '#39763b' : '#29292e'}]}>
+            <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: clickedcustom ? '#64ad64' : '#29292e'}]}>
                <Text style={{  color: clickedcustom ? 'black' : '#ffffff' }}>Custom</Text>
             </View>
            </TouchableOpacity>:null}
            <TouchableOpacity onPress={() => handleToggle(0)}>
-            <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===0 ? '#39763b' : '#29292e'}]}>
+            <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===0 ? '#64ad64' : '#29292e'}]}>
                <Text style={[{  color: activeIndex === 0 ? 'black' : '#ffffff' },fontSize(17)]}>Today</Text>
             </View>
            </TouchableOpacity>
           <TouchableOpacity onPress={() => handleToggle(1)}>
-          <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===1 ? '#39763b' : '#29292e'}]}>
+          <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===1 ? '#64ad64' : '#29292e'}]}>
           <Text style={[{ color: activeIndex === 1 ? 'black' : '#ffffff' },fontSize(17)]}>Week</Text>
           </View>
           </TouchableOpacity>
          <TouchableOpacity onPress={() => handleToggle(2)}>
-         <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===2 ? '#39763b' : '#29292e'}]}>
+         <View style={[{height:heightValue(24),width:widthValue(5)},setradius(marginss),styles.allCenter,{backgroundColor: activeIndex===2 ? '#64ad64' : '#29292e'}]}>
           <Text style={[{ color: activeIndex === 2 ? 'black' : '#ffffff' },fontSize(17)]}>Month</Text>
           </View>
          </TouchableOpacity>
@@ -68,7 +68,7 @@ let handlecustom=()=>{
         
     </View> 
     {clickedcustom ? <Customhistory/>:
-    <View style={[{height:heightValue(2.3),width:widthValue(1.1)},marginPosition(0,0,0,'0%')]}>
+    <View style={[{height:heightValue(2.3),width:widthValue(1.1)}]}>
 
     <Swiper ref={swiper} showsPagination={showpagination} loop={false} onIndexChanged={(index)=>setActiveIndex(index)} buttonWrapperStyle={{flex:1,justifyContent:'center',alignItems:'flex-end',flexdirection:'column',justifyContent:'space-around',marginRight:'0%',marginTop:'0%',marginLeft:'0%',marginRight:'0%'}} style={styles.wrapper} showsButtons={false} dot={ <View style={{
       width:10,
@@ -83,7 +83,7 @@ let handlecustom=()=>{
       height:13,
       borderRadius:7,
       margin:5,
-      backgroundColor:'green',
+      backgroundColor:'#64ad64',
       bottom:0
      
 
@@ -102,5 +102,5 @@ let handlecustom=()=>{
   )
 }
 
-export default Exampledashboard
+export default ToggleCard
 

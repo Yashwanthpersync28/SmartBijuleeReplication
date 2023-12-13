@@ -10,45 +10,19 @@ const Passwordinputbox = ({val,name,onFocus,focuss,onBlur}) => {
   const toggleEyeVisibility = () => {
     setEyeshow(!eyeshow);
   };
-  // let handlepassword=(pass)=>{
-    
-  //   const hasLetter = /[a-zA-Z]/.test(pass);
-  //   const hasNumber = /\d/.test(pass);
-  //   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
-  //   const uppercaseRegex = /[A-Z]/.test(pass);
-  //    if(pass.length>8){
-  //     setpasslength(true)
-  //    }
-  //    else{
-  //     setpasslength(false)
-  //    }
-  //     if(hasLetter && uppercaseRegex){
-  //       setpasswordcase(true)
-  //     }
-  //     else{
-  //       setpasswordcase(false)
-  //     }
-  //     if(hasNumber && hasSpecialChar){ 
-  //       setpasswordsymbol(true) 
-        
-  //     }
-  //     else{
-  //       setpasswordsymbol(false)
-  //     }
-    
-  // }
+  
   return (
     
        
 <View>
       <View style={[bgColor(focuss),{ height: heightValue(11), width: widthValue(1.6) }, padding(0, 10, 20, 10, 20), styles.column, marginPosition(0, 0, 3), radius(20), ]}>
-        <Text style={[fontSize(13), styles.gr]}>Password</Text>
-        <View style={[styles.row, { alignItems: 'center' },borderColor('green'),borderWidth(0,0,0,0.8)]}>
+        <Text style={[fontSize(13), styles.gr]}>{name}</Text>
+        <View style={[styles.row, { alignItems: 'center' },borderColor('green'),borderWidth(0,0,0,1)]}>
           <TextInput onBlur={onBlur} onFocus={onFocus}
             secureTextEntry={eyeshow}
             style={[
               {flex: 1,fontSize: 18, padding:0, textAlignVertical: 'top' ,paddingVertical: 3,color:'white' }
-              // Add any additional styles you need
+
             ]}
           />
           <TouchableOpacity onPress={toggleEyeVisibility}>

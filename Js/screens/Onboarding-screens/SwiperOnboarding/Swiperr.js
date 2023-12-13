@@ -1,12 +1,11 @@
 import React from 'react'
 import { View,Text,TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper'
-import { styles ,fontSize, marginPosition, screenHeight, flex } from '../../../../styles/Styles';
-import { useRef,useState } from 'react';
+import { styles , fontSize , marginPosition , screenHeight , flex } from '../../../../styles/Styles';
+import { useRef , useState } from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { onboardingdata } from '../DataOnbarding';
-import Onboardingone from '../Onboardingone';
-
+import Onboarding from '../Onboarding';
 
 
 
@@ -28,10 +27,13 @@ let handleSwipeIndexChange=(w)=>{
     setdone(false)
   }
 }
-let handlenext=()=>{
-  setIndex(index)
-  swiper.current.scrollBy(index + 1)
-}
+// let handlenext=()=>{
+//   setIndex(index)
+//   swiper.current.scrollBy(index + 1)
+// }
+let handlenext = () => {
+  swiper.current.scrollBy(1);
+};
   return (
   <View style={[flex(1),screenHeight(1)]}>
     <Swiper ref={swiper} loop={false} autoplay={false} onIndexChanged={handleSwipeIndexChange}  buttonWrapperStyle={{flex:1,justifyContent:'center',alignItems:'flex-end',flexdirection:'column',justifyContent:'space-around',marginRight:'10%',marginTop:'0%',marginLeft:'16%',marginRight:'-71%'}} style={styles.wrapper} showsButtons={true} dot={ <View style={{
@@ -64,7 +66,7 @@ let handlenext=()=>{
       onboardingdata.map((ob,index)=>{
         return(
           <View key={index}>
-            <Onboardingone heading={ob.heading} name={ob.name} details={ob.details} lottiedata={ob.lottiedata} number={ob.number}/>
+            <Onboarding heading={ob.heading} name={ob.name} details={ob.details} lottiedata={ob.lottiedata} number={ob.number}/>
           </View>
         )
       })

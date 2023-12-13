@@ -7,7 +7,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import Inputbox from '../../../Loginpage/CommonCards/Inputbox'
 import FillInput from './FillInput'
 import DropdownMenu from './Dropdown'
-const FillDetails = ({handletoConfirmpage}) => {
+const FillDetails = ({handletoConfirmpage,onChangeText, onnumberChange , onchangeDropdown , handleIsDiasbled}) => {
 
 
     const [errornumber,seterrornumber]=useState('');
@@ -17,35 +17,45 @@ const FillDetails = ({handletoConfirmpage}) => {
     const [select,setselect]=useState('')
     const[name,setname]=useState(false);
 
-    useEffect(() => {
-        setIsDisabled(number && name && select.length>1);
-        handletoConfirmpage(isDisabled)
-    }, [number, name,select]);
+    // useEffect(() => {
+    //     setIsDisabled(number && name );
+    //     handleIsDiasbled(false)
+    // }, [number, name,select]);
     const numbervalidation=(data,val)=>{
        
             if(data<10 || isNaN(val)){
                 seterrornumber('Please enter the correct Mobile Number')
                 setnumber(false)
-
+                
+ 
             }
             else{
                 seterrornumber('');
                 setnumber(true)
-
+                // handleIsDiasbled(val)
+                handletoConfirmpage()
+                onnumberChange(val)
+               
             }
     }
     const namevalidation=(data,val)=>{
         if(data>3 && isNaN(val) ){
             seterrorname('');
             setname(true);
+            onChangeText(val)
+            handletoConfirmpage()
         }
         else{
             seterrorname('Plese enter correct name')
+            // handleIsDiasbled(val)
             setname(false);
+            // handleIsDiasbled(true)
         }
     }
     const getdatafromDropdown=(a)=>{
        setselect(a) ;
+       onchangeDropdown(a)
+       handletoConfirmpage()
     }
     return (
         <View style={[flex(1)]}>
@@ -99,17 +109,7 @@ const FillDetails = ({handletoConfirmpage}) => {
                      </View>
                 </View>
             </View>
-            {/* <View style={[styles.flexEnd]}>
-            <View style={[{width:widthValue(3),height:heightValue(17)},{backgroundColor:isDisabled ?'#077227':'#29292e'},styles.allCenter,radius(30)]}>
-                <TouchableOpacity disabled={isDisabled} onPress={()=>handletoConfirmpage(true)} >
-                    <View style={[styles.row]}>
-                          <Text style={[styles.white,fontSize(17)]}>Next</Text>
-                         <FontAwesome5Icon name='chevron-right' style={[styles.white,fontSize(15),marginPosition(4)]}/>
-                    </View>
-                   
-                </TouchableOpacity>
-            </View>
-            </View> */}
+           
         </View>
     )
 }

@@ -3,11 +3,12 @@ import {NavigationContainer} from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { stackarray } from './screens/StackNavigation/Stackdata/Stackdatas';
 // import codePush from "react-native-code-push";
-import DrawerNavigation from './screens/DrawerNavigation';
+
 import { Provider } from 'react-redux';
 
 import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './redux/store';
+import store,{ persistor} from './Redux/store';
+// import store, { persistor } from './redux/store';
 // import { Provider } from 'react-redux';
 // import { store } from './Redux/Store/store';
 

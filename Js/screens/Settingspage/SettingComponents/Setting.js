@@ -8,11 +8,13 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import UiSettings from './UiSettings';
 import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 import DrawerScreenWrapper from '../../Drawer/DrawerScreenWrapper';
+import { SafeAreaView } from 'react-native';
 // import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 const Setting = ({navigation}) => {
    
   return (
     <DrawerScreenWrapper>
+      <SafeAreaView>
    <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>
    <Menu navigation={navigation}/>
       <ScrollView>
@@ -30,6 +32,7 @@ const Setting = ({navigation}) => {
       </ScrollView>
        
    </View>
+   </SafeAreaView>
    </DrawerScreenWrapper>
   )
 }

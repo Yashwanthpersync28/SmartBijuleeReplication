@@ -7,7 +7,7 @@ import Menu from '../CommonComponents/Cards/Menu';
 import Header from '../CommonComponents/Cards/Header';
 const Billing = ({navigation}) => {
    let heading="Postpaid";
-   let comp="Balances";
+   let comp="Balance";
    let details="Inspect your bills and pay online";
   return (
     <DrawerScreenWrapper >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View,Text, TouchableOpacity } from 'react-native'
+import { View,Text, TouchableOpacity,SafeAreaView } from 'react-native'
 import BackButton from '../CommonComp/BackButton'
 import { borderColor, borderWidth, flex, fontSize, heightValue, marginPosition, padding, position, radius, styles, widthValue } from '../../../../../styles/Styles'
 import SettingsHeader from '../CommonComp/SettingsHeader'
@@ -13,6 +13,7 @@ const Manage = () => {
            setconsumerpage(a)
     }
   return (
+    <SafeAreaView>
     <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)},styles.centerHorizontal,]}>
         <View style={[{width:widthValue(1.1),height:heightValue(12)}]} >
                <BackButton/>
@@ -21,7 +22,7 @@ const Manage = () => {
             <View style={[{width:widthValue(1.1),height:heightValue(1.4)},styles.allCenter,marginPosition(30)]}>
               {showconsumerpage ? <Logincards showconsumer={true} name={'Consumer'}  heightval={true}/> :  <ListofMembers Goto={Consumernav}/>}
               {showconsumerpage ? <>
-               <View style={[styles.bgdashblue,radius(30),{height:heightValue(18),width:widthValue(3)},styles.allCenter,marginPosition(20)]}>
+               <View style={[styles.bggreyish,radius(30),{height:heightValue(18),width:widthValue(2.8)},styles.allCenter,marginPosition(20)]}>
                 <TouchableOpacity>
                     <Text style={[styles.white]}>Generate OTP</Text>
                 </TouchableOpacity>
@@ -29,6 +30,7 @@ const Manage = () => {
                </> : null}
            </View>
     </View>
+    </SafeAreaView>
   )
 }
 

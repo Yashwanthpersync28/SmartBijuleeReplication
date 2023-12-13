@@ -13,6 +13,7 @@ const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
       const [sendFeedback, setFeedback] = useState('');
     
       const toggleColor = (itemId) => {
+       
         const updatedArr = arr.map(item =>
           item.id === itemId ? { ...item, showicon: !item.showicon } : { ...item, showicon: false }
         );
@@ -23,6 +24,7 @@ const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
         const selectedNames = updatedArr.filter(item => item.showicon).map(item => item.name);
         setFeedback(selectedNames.join(', '));
         getdatafromparent(selectedNames);
+
        
         // getdatafromparent(sendFeedback)
       };
@@ -35,7 +37,7 @@ const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
             name={data.icon}
             style={[
               { fontSize: data.showicon ? afterpressed : size },
-              { color: data.showicon ? 'lightgreen' : 'darkgreen' }
+              { color: data.showicon ? '#28b085' : '#64ad64' }
             ]}
           />
         </View>

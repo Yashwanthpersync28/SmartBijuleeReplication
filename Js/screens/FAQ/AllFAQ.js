@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, View, Text, ScrollView } from 'react-native';
-import { flex, fontSize, heightValue, marginPosition, radius, styles, widthValue } from '../../../styles/Styles';
+import { TouchableOpacity, View, Text, ScrollView,SafeAreaView } from 'react-native';
+import { flex, fontSize, heightValue, marginPosition, padding, radius, styles, widthValue } from '../../../styles/Styles';
 import Header from '../CommonComponents/Cards/Header';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import Menu from '../CommonComponents/Cards/Menu';
@@ -42,6 +42,7 @@ const AllFAQ = ({ navigation }) => {
 
   return (
     <DrawerScreenWrapper>
+      <SafeAreaView>
     <View style={[styles.bglightblack, {height:heightValue(1),width:widthValue(1)}]}>
       <Menu navigation={navigation} />
       <ScrollView>
@@ -51,19 +52,19 @@ const AllFAQ = ({ navigation }) => {
           <Faqbuttons buttonname={'General'} handlebuttons={showFirstFourItems} reducewidth={false}/>
           <Faqbuttons buttonname={'Billing'} handlebuttons={showLastFourItems} reducewidth={false}/>
         </View>
-        <View style={[flex(8), marginPosition('3%', 0, 0, '5%'), { width: widthValue(1.1) }]}>
+        <View style={[flex(8), marginPosition(8, 0, 0, 20), { width: widthValue(1.1) }]}>
           <View style={[styles.row]}>
-            <Text style={[styles.white, fontSize(20)]}>General</Text>
-            <Text style={[styles.green, fontSize(20), marginPosition(0, 0, '3%', '3%')]}>Category</Text>
+            <Text style={[styles.white, fontSize(17)]}>General</Text>
+            <Text style={[styles.green, fontSize(17), marginPosition(0, 0, 5, 10)]}>Category</Text>
           </View>
           {displayedItems.map((item) => (
-            <View key={item.id} style={[marginPosition(0, 0, '5%')]}>            
-              <View  style={[styles.allCenter, { height: heightValue(12) }, styles.bgdashblue, radius(0, 15, 0, 0, 15)]}>
+            <View key={item.id} style={[marginPosition(0, 0, 10)]}>            
+              <View  style={[styles.allCenter,padding(10), styles.bgdashblue, radius(0, 10, 0, 0, 10)]}>
                    <TouchableOpacity onPress={() => toggleLowerArrow(item.id)} style={[styles.row,styles.allCenter]}>
                 <View style={[styles.allCenter, flex(3)]}>
-                  <Text style={[styles.white, fontSize(16), marginPosition(0, 0, 0, '5%')]}>{item.heading}</Text>
+                  <Text style={[styles.white, fontSize(13), ]}>{item.heading}</Text>
                 </View>
-                <View style={[styles.allCenter, flex(1), marginPosition(0, 0, 0, '0%')]}>
+                <View style={[styles.allCenter, flex(1), ]}>
                  
                     <FontAwesome5Icon name={item.lowerarrow ? 'chevron-up':'chevron-down'} style={[fontSize(30), styles.gray]} />
 
@@ -79,6 +80,7 @@ const AllFAQ = ({ navigation }) => {
         </View>
       </ScrollView>
     </View>
+    </SafeAreaView>
     </DrawerScreenWrapper>
   );
 };

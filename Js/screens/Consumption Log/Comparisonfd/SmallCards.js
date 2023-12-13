@@ -21,11 +21,11 @@ const SmallCards = ({day,progress}) => {
               <Text style={[fontSize(10),{marginLeft:widthValue(60),color:'#ffffff'}]}>[InProgress]</Text>:<Text style={{display:'none'}}></Text>}
             </View>
             <View style={[{height:heightValue(18),width:widthValue(2.3)},styles.allCenter,styles.column]}>
-            <View style={[{height:heightValue(73),width:widthValue(2.6),},styles.row,styles.spaceBetween,marginPosition('0%',0,0,'0%')]}>
+            <View style={[{width:widthValue(2.7),},styles.row,styles.spaceBetween,marginPosition(0,0,0)]}>
               <Text style={[fontSize(10),styles.white]}>Consumption</Text>
               <Text style={[fontSize(10),styles.white]}>Units</Text>
             </View>
-            <View style={[{height:heightValue(21),width:widthValue(2.6),},styles.allCenter,marginPosition('-4%')]}>
+            <View style={[{height:heightValue(21),width:widthValue(2.6),},styles.allCenter,marginPosition(-10)]}>
             
             <VictoryBar horizontal data={data} x='month' y='earnings'
                     width={widthValue(1.5)} height={heightValue(17)} style={{ data: { fill: '#3c3c42', height: 100 } }} barWidth={heightValue(65)} cornerRadius={{ top: 6, bottom: 6 }}></VictoryBar>

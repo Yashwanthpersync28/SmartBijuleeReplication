@@ -26,12 +26,12 @@ const Informationcards = ({height}) => {
    {/* <BackButton/> */}
     <View style={[styles.allCenter,{height:heightValue(height)},styles.bgdashblue,marginPosition(0,0,10),radius(20)]}>
             <TouchableOpacity onPress={ImageSelect} style={[styles.allCenter]}>
-            <Image  source={require('../../../Assetslottie/Images/LoginLogo2.png')} style={[position(-100),{height:100,width:100},styles.positionAbsolute]}/>
+            <Image  source={require('../../../Assetslottie/Images/LoginLogo2.png')} style={[position(-100),{height:120,width:120},styles.positionAbsolute]}/>
             </TouchableOpacity>
-          <Text style={[styles.white,fontSize(18)]}>Esyatest3</Text>
+          <Text style={[styles.white,fontSize(19),marginPosition(20)]}>Esyatest3</Text>
          <View style={[styles.row]}>
-            <Text style={[styles.green,fontSize(15)]}>ConsumerID :</Text>
-            <Text style={[styles.green,fontSize(15),marginPosition(0,0,0,5)]}>C0000003</Text>
+            <Text style={[styles.green,fontSize(13)]}>ConsumerID :</Text>
+            <Text style={[styles.green,fontSize(13),marginPosition(0,0,0,5)]}>C0000003</Text>
         </View>
         <View style={[styles.red,{width:80}]}>
 

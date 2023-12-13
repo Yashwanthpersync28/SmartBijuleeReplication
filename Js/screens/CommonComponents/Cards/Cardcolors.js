@@ -12,11 +12,11 @@ const Cardcolors = ({name,secondname,units,time, month, monthshow ,value}) => {
 
 
   return (
-    <View style={[{height:heightValue(7.3),width:widthValue(1.1),},marginPosition('3%',0,0,'5%'),styles.bgdashblue,radius(10)]}>
+    <View style={[{height:heightValue(7.8),width:widthValue(1.1),},marginPosition(0,0,0,'5%'),styles.bgdashblue,radius(10)]}>
       <View style={[styles.row]}>
          <View style={[styles.column]}>
               {/* <View style={[styles.bgDarkBlue,{height:heightValue(20),width:widthValue(1.8)},styles.centerVertical,styles.column]}> */}
-                 <View style={[styles.row,marginPosition('5%',0,0,'5%'),styles.selfStart]}>
+                 <View style={[styles.row,marginPosition(10,0,0,10),styles.selfStart]}>
                    <Text style={[styles.white,fontSize(20)]}>{name}</Text>
                    <Text style={[styles.green,fontSize(20),{marginLeft:widthValue(50)}]}>{secondname}</Text>
                  </View> 

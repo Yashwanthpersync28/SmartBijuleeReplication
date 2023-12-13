@@ -13,8 +13,8 @@ const BackButton = () => {
   return (
     <TouchableOpacity onPress={handlesetting}>
     <View style={[styles.row,marginPosition(10,0,5),{height:heightValue(18)},,styles.centerHorizontal]}>
-    <FontAwesome5Icon name='chevron-left' style={[fontSize(20),styles.white]}/>
-     <Text style={[styles.white,fontSize(17),marginPosition(0,0,0,10)]}>Back</Text>
+    <FontAwesome5Icon name='chevron-left' style={[fontSize(16),styles.white]}/>
+     <Text style={[styles.white,fontSize(15),marginPosition(0,0,0,10)]}>Back</Text>
   </View>
   </TouchableOpacity>
   )

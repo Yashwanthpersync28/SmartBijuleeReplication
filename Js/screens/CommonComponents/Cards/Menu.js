@@ -4,9 +4,9 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import { heightValue,widthValue,styles,fontSize } from '../../../../styles/Styles'
 const Menu = ({navigation}) => {
   return (
-    <View style={[{ height: heightValue(14), width: widthValue(1) }, styles.centerVertical]}>
+    <View style={[{ height: heightValue(15), width: widthValue(1) }, styles.centerVertical]}>
           <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
-            <FontAwesome5Icon name='bars' style={[fontSize(28), { marginLeft: widthValue(13) }, styles.white]} />
+            <FontAwesome5Icon name='bars' style={[fontSize(24), { marginLeft: widthValue(13) }, styles.white]} />
           </TouchableOpacity>
         </View>
   )

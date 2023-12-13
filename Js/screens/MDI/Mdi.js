@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { heightValue,widthValue ,styles,fontSize,marginPosition, radius, borderWidth, borderColor} from '../../../styles/Styles'
-import {View,Text, ScrollView} from 'react-native';
+import {View,Text, ScrollView, SafeAreaView} from 'react-native';
 import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper';
 import Cardcolors from '../CommonComponents/Cards/Cardcolors';
 import MainCard from '../CommonComponents/Cards/MainCard';
@@ -14,9 +14,10 @@ const Mdi = ({navigation}) => {
     let details="Are you surpassing your sanctioned demand ?";
   return (
     <DrawerScreenWrapper>
+      <SafeAreaView>
  <View style={[{height:heightValue(1),width:widthValue(1)},styles.bglightblack]}>
    <Menu navigation={navigation}/>
-   <ScrollView>
+   <ScrollView showsVerticalScrollIndicator={false}>
    <Header heading={heading} continueprop={comp} details={details} columnwise={false} display={false}/>
   <Cardcolors name={"Sanctioned"} secondname={'Load'} units={'kW'} time={'December'} monthshow={true} value={'1'} month={true}/>
   <MainCard name={"Monthly"} secondname={'Max Demand'} showsingleline={true} data={monthly} xaxis={'day'} yaxis={'bill'}/>
@@ -54,6 +55,7 @@ const Mdi = ({navigation}) => {
   </View>
   </ScrollView>
   </View>
+  </SafeAreaView>
   </DrawerScreenWrapper>
   )
 }

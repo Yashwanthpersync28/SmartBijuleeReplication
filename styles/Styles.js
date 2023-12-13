@@ -39,7 +39,7 @@ export const setspace = (a) => {
 }
 
 export const setfontsize = (a) => {
-    return a ?  fontSize(20) : fontSize(18)
+    return a ?  fontSize(18) : fontSize(15)
 }
 export const setdisplay = (a) => {
     return a ?  display('none') : display('show')

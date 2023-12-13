@@ -35,7 +35,7 @@ const Calendarcomp = ({onClose}) => {
     // onClose(selectedDate);
   };
 
-  const customDayHeaderStyles = (date, selected, today, marking) => {
+  const customDayHeaderStyles = (date, selected) => {
     const isWithinRange = date <= new Date() && date >= sevenDaysAgo;
 
     if (isWithinRange) {
@@ -47,10 +47,10 @@ const Calendarcomp = ({onClose}) => {
 
   return (
     <View style={[styles.allCenter, styles.row]}>
-      <View style={[{ height: 220, backgroundColor: "#29292e", width: widthValue(10) }, styles.allCenter]}>
+      <View style={[{ height: 200, backgroundColor: "#29292e", width: widthValue(10) }, styles.allCenter]}>
         <FontAwesome5Icon name='calendar' style={[styles.white, fontSize(20)]} />
       </View>
-      <View style={[{ height: 220, backgroundColor: "#29292e", width: widthValue(1.2) }]}>
+      <View style={[{ height: 200, backgroundColor: "#29292e", width: widthValue(1.2) }]}>
         <CalendarPicker
           ref={calendarRef}
           textStyle={{
@@ -58,7 +58,7 @@ const Calendarcomp = ({onClose}) => {
             fontSize: 9
           }}
           maxDate={sevenDaysAgo}
-          width={300}
+          width={230}
           customDayHeaderStyles={customDayHeaderStyles}
           onDateChange={handleDateChange}
         />

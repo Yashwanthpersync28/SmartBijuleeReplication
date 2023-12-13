@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
-// import Splash from './Splash';
 import Splash from '../splashscreen/Splash';
 import { View } from 'react-native'
-
 import { Swiperr } from '../../Onboarding-screens/SwiperOnboarding/Swiperr';
 
 
 function MainAppp({navigation}) {
-    let [showcomponent, setshowcomponent] = useState(true);
+    let [showcomponent,setshowcomponent] = useState(true);
     useEffect(() => {
         setTimeout(() => {
             setshowcomponent(false)
@@ -17,7 +15,7 @@ function MainAppp({navigation}) {
        
         <View  style={{flex:1}}>
             {
-                showcomponent ? <Splash navigation={navigation} /> :
+                showcomponent ? <Splash navigation={navigation}/> :
                     <View style={{flex:1}}>
                         <Swiperr navigation={navigation}/>
                     </View>

@@ -1,6 +1,6 @@
 // const { default: Comparison } = require("../../Consumption Log/Comparisonfd/Comparison");
 // const { default: Dashboardone } = require("../../Dashboardd/Dashboardone");
-import Dashboardone from "../../Dashboardd/Dashboardone"
+import Dashboardone from "../../DashboardScreen/Dashboard"
 
 
 
