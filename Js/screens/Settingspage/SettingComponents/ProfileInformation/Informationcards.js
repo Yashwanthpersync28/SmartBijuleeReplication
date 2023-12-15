@@ -3,7 +3,7 @@ import { View,Text,Image, TouchableOpacity, Alert } from 'react-native'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { position,flex,widthValue,heightValue,styles,marginPosition,fontSize,radius } from '../../../../../styles/Styles';
 import { launchCamera,launchImageLibrary } from 'react-native-image-picker';
-const Informationcards = ({height}) => {
+const Informationcards = ({height,logo}) => {
 
   const choosePhoto =  async ()=>{
     const galleryResult = await launchImageLibrary({mediaType:'photo',quality:1});
@@ -25,10 +25,10 @@ const Informationcards = ({height}) => {
     <View style={[flex(1),{width:widthValue(1.1)},styles.positionRelative,marginPosition(30)]}>
    {/* <BackButton/> */}
     <View style={[styles.allCenter,{height:heightValue(height)},styles.bgdashblue,marginPosition(0,0,10),radius(20)]}>
-            <TouchableOpacity onPress={ImageSelect} style={[styles.allCenter]}>
-            <Image  source={require('../../../Assetslottie/Images/LoginLogo2.png')} style={[position(-100),{height:120,width:120},styles.positionAbsolute]}/>
+            <TouchableOpacity onPress={ImageSelect} style={[styles.allCenter,marginPosition(0,0,20)]}>
+            <Image  source={require('../../../Assetslottie/Images/LoginLogo2.png')} style={[position(-100),{height:logo,width:logo},styles.positionAbsolute,]}/>
             </TouchableOpacity>
-          <Text style={[styles.white,fontSize(19),marginPosition(20)]}>Esyatest3</Text>
+          <Text style={[styles.white,fontSize(19),marginPosition(10)]}>Esyatest3</Text>
          <View style={[styles.row]}>
             <Text style={[styles.green,fontSize(13)]}>ConsumerID :</Text>
             <Text style={[styles.green,fontSize(13),marginPosition(0,0,0,5)]}>C0000003</Text>

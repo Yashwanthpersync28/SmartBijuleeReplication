@@ -13,10 +13,10 @@ function Onboarding({heading,name,details,lottiedata,number}) {
            <Text style={[styles.green,fontSize(32)]}>{name}</Text>   
        </View>
        <View style={[flex(3.1),styles.allCenter]}> 
-       <LottieView style={[heightwidth('90%','90%')]} source={lottiedata} autoPlay />
+            <LottieView style={[heightwidth('90%','90%')]} source={lottiedata} autoPlay />
        </View>
        <View style={[marginPosition(0,0,95,40),screenWidth(1.3),flex(1.2),styles.allCenter]}> 
-        <Text style={[fontSize(17),styles.fontwhite]}>{details}</Text>
+             <Text style={[fontSize(17),styles.fontwhite]}>{details}</Text>
        </View>   
     </View>
   

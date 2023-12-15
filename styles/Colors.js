@@ -19,5 +19,6 @@ export const Colors =  {
     lightgreyish:"#394252",
     gr:"#ada7a8",
     dashblue:'#29292e',
-    dashboardcolor:"#282f42"
+    dashboardcolor:"#282f42",
+    greenHEX:'#64ad64'
 }

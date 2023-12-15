@@ -9,13 +9,15 @@ export const ApiManager = (token, { method, url, body, contentType }, addHeaders
                 method, url, body
             }
 
-            console.log("API Manager Request Log", url, token, body, method);
+            console.log("API Manager Request Log", url, token, body ? body : "", method);
             let formHeaders;
             if (contentType == "form") {
                 formHeaders = { 'Content-Type': 'multipart/form-data' }
             }
             try {
-                let resp = await apiClient[method](url, token, body, contentType == "form" ? formHeaders : addHeaders,);
+                console.log("sfvkhsbfkvjhsfbvkjshfbvsfvd")
+                // let resp = await apiClient[method](url, token, body ? body : "", contentType == "form" ? formHeaders : addHeaders,);
+                let resp = await apiClient[method](url, token, body ? body : "", contentType == "form" ? formHeaders : "addHeaders",);
                 console.log("ApiManager Response ", resp);
                 console.log("ApiManager Response ", JSON.parse(JSON.stringify(resp)));
                 return resolve(resp);

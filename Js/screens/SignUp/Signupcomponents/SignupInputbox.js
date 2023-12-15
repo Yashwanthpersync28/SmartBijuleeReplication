@@ -3,7 +3,7 @@ import { View, Text, TextInput} from 'react-native';
 import { styles,heightValue,widthValue,padding,marginPosition,radius,bgColor,borderColor,borderWidth,fontSize } from '../../../../styles/Styles';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
-const SignupInputbox = ({height , label, secureTextEntry, value, onChangeText, error , onBlur , onFocus , focuss , star , showeye}) => {
+const SignupInputbox = ({keyboardType ,height , label, secureTextEntry, value, onChangeText, error , onBlur , onFocus , focuss , star , showeye}) => {
   const [eye,seteye]=useState(showeye);
   return (
     
@@ -17,7 +17,9 @@ const SignupInputbox = ({height , label, secureTextEntry, value, onChangeText, e
           {textAlignVertical:"center"}]} 
           onBlur={onBlur} onFocus={onFocus} 
           onChangeText={onChangeText} 
-          value={value}/>
+          value={value}
+          keyboardType={keyboardType}
+          />
           <View style={[styles.flexEnd,marginPosition(10),styles.bgGray]}>
             {showeye ? 
             <FontAwesome5Icon name={eye ? 'eye-slash' : 'eye'} onPress={()=>seteye(!eye)} style={[styles.gray,fontSize(15),marginPosition(-40,0,0,0)]}/>:null}

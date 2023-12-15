@@ -118,6 +118,7 @@ const SignupPage = ({navigation}) => {
       height={9.8}
       star={false}
       showeye={false}
+      keyboardType={'numeric'}
     />
       <SignupInputbox
         label="Email"

@@ -5,13 +5,11 @@ import Buttonx from '../Loginpage/CommonCards/Buttonx';
 import Logincards from '../Loginpage/CommonCards/Logincards';
 
 const Consumer = ({navigation}) => {
-  // let name=true;
-    // let [focus,setfocus]=useState(true)
-    let handlelogin=()=>{
+    const handlelogin=()=>{
         navigation.navigate('login')
-        // setfocus(false);
       }
-      let handlesignup=()=>{
+
+      const handlesignup=()=>{
         navigation.navigate('signup')
       }
   return (
@@ -28,7 +26,7 @@ const Consumer = ({navigation}) => {
                     <Text style={[styles.white]}>Next</Text>
                 </View>
               </TouchableOpacity>
-          <View style={[styles.row,{height:heightValue(10)},styles.allCenter,marginPosition(0)]}>
+           <View style={[styles.row,{height:heightValue(10)},styles.allCenter,marginPosition(0)]}>
                 <Text style={{...fontSize(17),...styles.white}}>Already have an account?</Text>
                 <TouchableOpacity>
                    <View style={{...marginPosition(0,0,0,6)}}>

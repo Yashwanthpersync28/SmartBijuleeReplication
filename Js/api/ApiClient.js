@@ -15,13 +15,16 @@ class ApiClient {
     }
 
     async get(url, token, additionalHeaders, params) {
+        console.log("sdckjahbsdckajsdhbcaksdjhbcasdc", token)
         ApiClient.headersPromise(token);
+        console.log("svkjhsbdfkvjhsdfbkvsjhdfbvsdfv", url,"=====" ,token, "=====", additionalHeaders)
         if(additionalHeaders){
             let keys = Object.keys(additionalHeaders);
             keys.forEach(h =>{
                 axios.defaults.headers.common[h] = additionalHeaders[h].value;
             });
         }
+        console.log("kdbckjahsbdvckasdvbaksjdbcvasda", apiBaseUrl + url)
         return(await axios.get(apiBaseUrl + url));
     }
 

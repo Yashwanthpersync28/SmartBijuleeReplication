@@ -60,7 +60,7 @@ const FeedbackCard = () => {
             </View> 
             </> :null}
             {count <3 ? <>
-            <View style={[{width:widthValue(3),height:heightValue(19)},{backgroundColor:next ?'#262f40':'#077227'},styles.allCenter,radius(30)]}>
+            <View style={[{width:widthValue(3),height:heightValue(19)},{backgroundColor:next ?'#262f40':'#64ad64'},styles.allCenter,radius(30)]}>
                 <TouchableOpacity disabled={next}  onPress={handlecount}>
                     <View style={[styles.row]}>
                           <Text style={[styles.white,fontSize(17)]}>Next</Text>

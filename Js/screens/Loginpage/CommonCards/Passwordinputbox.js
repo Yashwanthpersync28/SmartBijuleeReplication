@@ -3,7 +3,7 @@ import { View ,Text, TextInput, TouchableOpacity} from 'react-native'
 import { bgColor,borderColor, borderWidth,widthValue, flex, fontSize, heightValue, marginPosition, padding, paddingPosition, position, radius, styles  } from '../../../../styles/Styles'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import { KeyboardAvoidingView } from 'react-native'
-const Passwordinputbox = ({val,name,onFocus,focuss,onBlur}) => {
+const Passwordinputbox = ({val,name,onFocus,focuss,onBlur , onChangePass , password}) => {
  
   const [eyeshow, setEyeshow] = useState(true);
 
@@ -20,10 +20,9 @@ const Passwordinputbox = ({val,name,onFocus,focuss,onBlur}) => {
         <View style={[styles.row, { alignItems: 'center' },borderColor('green'),borderWidth(0,0,0,1)]}>
           <TextInput onBlur={onBlur} onFocus={onFocus}
             secureTextEntry={eyeshow}
-            style={[
-              {flex: 1,fontSize: 18, padding:0, textAlignVertical: 'top' ,paddingVertical: 3,color:'white' }
-
-            ]}
+            onChangeText={onChangePass}
+            value={password}
+            style={[{flex: 1,fontSize: 18, padding:0, textAlignVertical: 'top' ,paddingVertical: 3,color:'white' }]}
           />
           <TouchableOpacity onPress={toggleEyeVisibility}>
             <FontAwesome5Icon

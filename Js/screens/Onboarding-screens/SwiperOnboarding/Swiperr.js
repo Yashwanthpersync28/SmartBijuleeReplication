@@ -27,10 +27,7 @@ let handleSwipeIndexChange=(w)=>{
     setdone(false)
   }
 }
-// let handlenext=()=>{
-//   setIndex(index)
-//   swiper.current.scrollBy(index + 1)
-// }
+
 let handlenext = () => {
   swiper.current.scrollBy(1);
 };

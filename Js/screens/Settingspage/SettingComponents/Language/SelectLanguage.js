@@ -38,7 +38,7 @@ const SelectLanguage = () => {
             <TouchableOpacity onPress={handlehindi}>
             <View style={[radius(30),{height:heightValue(8),width:widthValue(2)},styles.bgWhite,styles.allCenter,marginPosition(0,0,20)]}>
                 <Text style={[styles.green,fontSize(16)]}>Select Language</Text>
-                <Text style={[styles.green,fontSize(16)]}>Hindi</Text>
+                <Text style={[styles.green,fontSize(16)]}>हिंदी</Text>
                 <View style={[styles.flexEnd,{height:20,width:20},radius(30),styles.bggreen,styles.allCenter,marginPosition(3),setdisplaytofalse(hindi)]}>
                      {hindi ?  <FontAwesome5Icon name='check' style={[styles.white]}/>:null}
                  </View>

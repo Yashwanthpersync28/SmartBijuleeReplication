@@ -14,7 +14,7 @@ const Changepass = () => {
     <View style={[{width:widthValue(1.1)},flex(1)]}>
           <View style={[{height:heightValue(2)}]}>         
                    <BackButton/>
-                  <Informationcards height={5}/>
+                  <Informationcards height={5} logo={120}/>
                   <SettingsHeader name={'Reset'} heading={'Password'} details={'Please change your password every months for your account safety and security'} />
          </View>
          

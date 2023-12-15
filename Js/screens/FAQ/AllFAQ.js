@@ -46,7 +46,7 @@ const AllFAQ = ({ navigation }) => {
     <View style={[styles.bglightblack, {height:heightValue(1),width:widthValue(1)}]}>
       <Menu navigation={navigation} />
       <ScrollView>
-        <Header heading={heading} continueprop={continueprop} details={details} />
+        <Header heading={heading} continueprop={continueprop} details={details}/>
         <View style={[flex(1), marginPosition('3%', 0, 0, '5%'), { width: widthValue(1.1) }, styles.row, styles.centerHorizontal]}>
           <Faqbuttons buttonname={'All'} handlebuttons={showAllItems} reducewidth={true}/>
           <Faqbuttons buttonname={'General'} handlebuttons={showFirstFourItems} reducewidth={false}/>
@@ -61,12 +61,12 @@ const AllFAQ = ({ navigation }) => {
             <View key={item.id} style={[marginPosition(0, 0, 10)]}>            
               <View  style={[styles.allCenter,padding(10), styles.bgdashblue, radius(0, 10, 0, 0, 10)]}>
                    <TouchableOpacity onPress={() => toggleLowerArrow(item.id)} style={[styles.row,styles.allCenter]}>
-                <View style={[styles.allCenter, flex(3)]}>
+                <View style={[styles.centerVertical, flex(3)]}>
                   <Text style={[styles.white, fontSize(13), ]}>{item.heading}</Text>
                 </View>
                 <View style={[styles.allCenter, flex(1), ]}>
                  
-                    <FontAwesome5Icon name={item.lowerarrow ? 'chevron-up':'chevron-down'} style={[fontSize(30), styles.gray]} />
+                    <FontAwesome5Icon name={item.lowerarrow ? 'chevron-up':'chevron-down'} style={[fontSize(20), styles.gray]} />
 
                 </View>
                </TouchableOpacity>

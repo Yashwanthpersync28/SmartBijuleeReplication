@@ -17,10 +17,10 @@ const ColorMode = () => {
               <Text style={[styles.gray,fontSize(22)]}>Dark Mode</Text>
               
               <View style={[{height:heightValue(2),width:widthValue(1.2)},styles.allCenter]}>  
-              <View style={[{height:120,width:120,backgroundColor:"#a88aab"},radius(60),styles.allCenter]}>
-                  <View style={[{height:100,width:100,backgroundColor:"#b291b5"},radius(50),styles.allCenter]}>
-                      <View style={[{height:80,width:80,backgroundColor:"#ecc7f0"},radius(50),styles.allCenter]}>
-                        <FontAwesome5Icon name='power-off' style={[fontSize(30)]}/>
+              <View style={[{height:160,width:160,backgroundColor:"#877e7e"},radius(80),styles.allCenter]}>
+                  <View style={[{height:120,width:120,backgroundColor:"#a69d9d"},radius(60),styles.allCenter]}>
+                      <View style={[{height:80,width:80,backgroundColor:"#d1becf"},radius(50),styles.allCenter]}>
+                        <FontAwesome5Icon name='power-off' style={[fontSize(30),styles.white]}/>
                       </View>
                   </View>
                </View>

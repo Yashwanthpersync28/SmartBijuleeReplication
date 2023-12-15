@@ -1,6 +1,5 @@
 import Consumer from "../../Consumer/Consumer";
 import Forgotpassword from "../../ForgotPassword screens/Forgotpassword";
-// import Otp from "../../OtpPage/Otp";
 import MainAppp from "../../Splash screens/Main/MainAppp";
 import Setting from "../../Settingspage/SettingComponents/Setting";
 import Profile from "../../Settingspage/SettingComponents/ProfileInformation/Profile";
@@ -28,7 +27,6 @@ export const stackarray=[
 {'name':'forgotpassword','componentname':Forgotpassword},
 {'name':'drawer','componentname':DrawerNavigations},
 {'name':'login','componentname':LoginScreen},
-// {'name':'Setting','componentname':Setting},
 {'name':'profile','componentname':Profile},
 {'name':'manage','componentname':Manage},
 {'name':'changepass','componentname':Changepass},

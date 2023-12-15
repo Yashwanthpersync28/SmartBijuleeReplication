@@ -14,7 +14,7 @@ const PassTextInput = ({name,handlepass}) => {
           <View style={[{height:heightValue(11),width:widthValue(1.3)},padding(0)]}>
             <View>
                 <Text style={[styles.white,fontSize(12)]}>{name}</Text>
-                <TextInput secureTextEntry={eye} style={[marginPosition(0,0,10),borderColor('green'),borderWidth(0,0,0,0.6),padding(10),styles.white,fontSize(17)]} onChangeText={(val)=>handlepass(val)}/>
+                <TextInput secureTextEntry={eye} style={[marginPosition(0,0,20),borderColor('green'),borderWidth(0,0,0,0.6),padding(10),styles.white,fontSize(17)]} onChangeText={(val)=>handlepass(val)}/>
                 </View>
                 <View style={[styles.flexEnd]}>
                 <FontAwesome5Icon name={eye ? 'eye-slash' : 'eye'} onPress={()=>seteye(!eye)} style={[styles.gray,fontSize(15),marginPosition(-40,0,0,0)]}/>

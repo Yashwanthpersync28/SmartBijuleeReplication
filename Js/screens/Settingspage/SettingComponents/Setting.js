@@ -1,15 +1,11 @@
 import React from 'react'
 import {View,Text,ScrollView} from 'react-native'
-import { flex, fontSize, heightValue, marginPosition, padding, radius, styles, widthValue } from '../../../../styles/Styles';
+import {fontSize, heightValue, marginPosition, styles, widthValue } from '../../../../styles/Styles';
 import Menu from '../../CommonComponents/Cards/Menu';
-import Header from '../../CommonComponents/Cards/Header';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-// import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 import UiSettings from './UiSettings';
 import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 import DrawerScreenWrapper from '../../Drawer/DrawerScreenWrapper';
 import { SafeAreaView } from 'react-native';
-// import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 const Setting = ({navigation}) => {
    
   return (

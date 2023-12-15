@@ -18,7 +18,7 @@ export const userVerifyApi = createAsyncThunk(loginendpoint,
         try{
             const res = await dispatch(ApiManager({},request))
             // const res = await ApiManager({}, request)
-            console.log("esresfdgfews",res)
+            console.log("ddddddqcasdcvasd",res)
             return res
         } catch  (error){
             const data = {
@@ -39,12 +39,8 @@ export const userotpVerifyApi = createAsyncThunk(otpVerifyApi,
         const request = {
             method: "post",
             url: otpVerifyApi,
-            body: {...data},
+            body: data,
         };
-
-        // const addHeaders = {
-        //     "x-app-id" : 4,
-        // }
         try{
             const res = await dispatch(ApiManager({}, request,));
             return res;

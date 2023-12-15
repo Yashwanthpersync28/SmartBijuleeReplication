@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,Text} from 'react-native'
 import { heightValue,widthValue,styles,fontSize,marginPosition ,setcolum, setdisplay, lineHeight} from '../../../../styles/Styles'
-const Header = ({heading,continueprop,details,columnwise,display}) => {
+const Header = ({heading,continueprop,details,columnwise}) => {
   
   return (
    

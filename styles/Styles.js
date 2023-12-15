@@ -205,7 +205,7 @@ export const styles = StyleSheet.create({
     fontwhite:{color:Colors.fontwhite},
     gr:{color:Colors.gr},
     lightgreen:{color:Colors.lightgreen},
-
+    greenHEX:{color:Colors.greenHEX},
 // - - - - - BACKGROUND COLORS - - - - - //
     bgWhite: { backgroundColor: Colors.white },
     bgBlack: { backgroundColor: Colors.black },
@@ -223,7 +223,7 @@ export const styles = StyleSheet.create({
     bglightgreyish:{backgroundColor:Colors.lightgreyish},
     bgdashblue:{backgroundColor:Colors.dashblue},
     dashboardcolour:{backgroundColor:Colors.dashboardcolor},
-
+    bggreenHEX:{backgroundColor:Colors.greenHEX},
 
 
 

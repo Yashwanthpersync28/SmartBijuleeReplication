@@ -74,7 +74,6 @@ const DrawerNavigations = () => {
             <DrawerContentScrollView  contentContainerStyle={[{paddingTop:0}]} showsVerticalScrollIndicator={false} {...props} style={[{ marginTop: 0, marginBottom: 50 }]}>
               {drawerItems.map((menu, index) => (
                 <View key={index}>
-                  {console.log("menumenumenu",menu)}
                   <DrawerItem
                     label={menu.label}
                     icon={() => (
@@ -83,6 +82,7 @@ const DrawerNavigations = () => {
                         style={[fontSize(20), styles.fontwhite, marginPosition(0, 0, 0, 0)]}
                       />
                     )}
+                    // for dropdown 
                     onPress={() => {
                       if (menu.children) {
                         setSelectedDropdown(selectedDropdown === menu.name ? null : menu.name);
@@ -122,7 +122,7 @@ const DrawerNavigations = () => {
                 </View>
               ))}
             </DrawerContentScrollView>
-            {/* ----------logout modal------------ */}
+           {/* Logout Modal */}
             <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeModal} style={[{ flex:4,alignItems:'center',justifyContent:'center'}]}>
                           <SafeAreaView style={[styles.selfStart,styles.bgWhite, {position:'absolute',bottom:0,width:'100%'},padding(0,20,20,0,20),radius(0,20,0,0,20)]}>
                           <Text style={[fontSize(20), styles.gray]}>Alert</Text>

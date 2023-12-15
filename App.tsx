@@ -1,6 +1,7 @@
 import React from 'react';
-import Appp from './Js/Appp';
+// import Appp from './Js/SmartBijule';
 import CodePush from 'react-native-code-push';
+import SmartBijule from './Js/SmartBijule';
 
 
 
@@ -9,7 +10,7 @@ import CodePush from 'react-native-code-push';
 function App() {
   
   return (
-     <Appp/>
+     <SmartBijule/>
 
   )
 } 

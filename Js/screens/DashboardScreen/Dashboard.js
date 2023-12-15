@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View,Text,ScrollView } from 'react-native';
 import {fontSize, heightValue, marginPosition, radius, styles, widthValue } from '../../../styles/Styles';
 import Consumptioncomp from '../ConsumptionComp/Consumptioncomp';
@@ -8,8 +8,24 @@ import Header from '../CommonComponents/Cards/Header';
 import Menu from '../CommonComponents/Cards/Menu';
 import Pychart from './component/Pychart';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { userVerifyApi } from '../../api/authApi';
+import { eventlistApi } from '../../api/authApi/get/dummy';
+import { useDispatch } from 'react-redux';
 
 const Dashboardone = ({navigation}) => {
+
+  const dispatch = useDispatch();
+
+  // const dashboardData = async () => {
+  //     const dashbboardResp = await dispatch(eventlistApi());
+  //   console.log('hgfjndkm',dashbboardResp);
+  // }
+
+
+  // useEffect(() => {
+  //   dashboardData()
+  // }, [])
+
   return (
     <DrawerScreenWrapper>
       <SafeAreaView>
