@@ -8,6 +8,7 @@ import Comparison from '../Consumption Log/Comparisonfd/Comparison';
 import History from '../Consumption Log/History/History';
 import { useNavigation } from '@react-navigation/native';
 import { heightValue , widthValue , styles , fontSize , flex , marginPosition , padding , borderWidth , radius , borderColor ,} from '../../../styles/Styles';
+import { useSelector } from 'react-redux';
 
 
 
@@ -16,6 +17,10 @@ import { heightValue , widthValue , styles , fontSize , flex , marginPosition , 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigations = () => {
+  const userSelector = useSelector(state => state.auth.user);//to get the user name and login id
+  const [name,setname]=useState(userSelector.data.Name)
+  const [CANumber,setCAnumber]=useState(userSelector.data.CANumber)
+
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDropdown, setSelectedDropdown] = useState(null);
 
@@ -67,8 +72,8 @@ const DrawerNavigations = () => {
                   source={require('../Assetslottie/Images/LoginLogo2.png')}
                   style={[{ width: widthValue(3), height: heightValue(7), resizeMode: 'contain' }]}
                 />
-                <Text style={[fontSize(17), styles.fontwhite]}>Yashwanth</Text>
-                <Text style={[fontSize(14), styles.fontwhite]}>Consumer ID : C000003</Text>
+                <Text style={[fontSize(17), styles.fontwhite]}>{name}</Text>
+                <Text style={[fontSize(14), styles.fontwhite]}>{`Consumer ID : ${CANumber}`}</Text>
               </View>
             </View>
             <DrawerContentScrollView  contentContainerStyle={[{paddingTop:0}]} showsVerticalScrollIndicator={false} {...props} style={[{ marginTop: 0, marginBottom: 50 }]}>
@@ -101,9 +106,13 @@ const DrawerNavigations = () => {
                         openStore();
                       } else if (menu.name === 'Logout') {
                         openModal();
-                      } else {
+                      }
+                      else if (menu.name === 'ContactUs' || menu.name === 'CustomerEngagement' || menu.name === 'EventAnalysis') {
+                        console.log('Contact Us');
+                      }
+                       else {
                         console.log("menu.component",menu.component);
-                        navigation.navigate( menu.component);
+                        navigation.navigate( menu.name);
                       }
                     }}
                     style={{
@@ -122,25 +131,29 @@ const DrawerNavigations = () => {
                 </View>
               ))}
             </DrawerContentScrollView>
-           {/* Logout Modal */}
+          {/* //Logout Modal */}
             <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeModal} style={[{ flex:4,alignItems:'center',justifyContent:'center'}]}>
                           <SafeAreaView style={[styles.selfStart,styles.bgWhite, {position:'absolute',bottom:0,width:'100%'},padding(0,20,20,0,20),radius(0,20,0,0,20)]}>
                           <Text style={[fontSize(20), styles.gray]}>Alert</Text>
                             <Text style={[fontSize(16), styles.gray,marginPosition(10)]}>Are you sure you want to Logout?</Text>
                             <View style={[styles.row,{gap:30},styles.allCenter,{height:heightValue(8),width:widthValue(1.2)}]}>
-                            <View style={[{height:heightValue(16),width:widthValue(2.6)},styles.allCenter,borderColor(styles.black),borderWidth(1),radius(10)]}>
-                                <TouchableOpacity onPress={closeModal}>
+                            <TouchableOpacity onPress={closeModal}>
+                                 <View style={[{height:heightValue(16),width:widthValue(2.6)},styles.allCenter,borderColor(styles.black),borderWidth(1),radius(10)]}>
+                                 
                                     <Text style={styles.black}>No</Text>
-                                </TouchableOpacity>
+                                
                                 </View>
-                                <View style={[{height:heightValue(16),width:widthValue(2.6),backgroundColor:'#39763b'},styles.allCenter,radius(10)]}>
+                                </TouchableOpacity>
                                 <TouchableOpacity onPress={() => {
                                        navigation.navigate('login')
                                        closeModal();
                                    }} >
+                                <View style={[{height:heightValue(16),width:widthValue(2.6),backgroundColor:'#39763b'},styles.allCenter,radius(10)]}>
+                               
                                    <Text style={styles.white}>Yes</Text>
-                              </TouchableOpacity>
+                             
                               </View>
+                              </TouchableOpacity>
                               </View>
                            </SafeAreaView>
                            </Modal>

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {  Text , TouchableOpacity, View ,ScrollView} from 'react-native';
 import { styles ,radius,marginPosition,fontSize, heightValue, widthValue} from '../../../styles/Styles'
 import Buttonx from '../Loginpage/CommonCards/Buttonx';
 import Logincards from '../Loginpage/CommonCards/Logincards';
 
 const Consumer = ({navigation}) => {
+  const [consumer,setsonsumer]=useState('');
+  const [showbtn,setshowbtn]=useState(false);
+ 
     const handlelogin=()=>{
         navigation.navigate('login')
       }
@@ -12,6 +15,15 @@ const Consumer = ({navigation}) => {
       const handlesignup=()=>{
         navigation.navigate('signup')
       }
+      useEffect(()=>{
+        if(consumer.length>4 ){
+          setshowbtn(true)
+        }
+        else{
+          setshowbtn(false)
+          
+        }
+      },[consumer])
   return (
     <ScrollView style={{...styles.bglightblack}}>
         <View style={[{height:heightValue(1),width:widthValue(1)},styles.bglightblack,styles.centerHorizontal]}>
@@ -19,10 +31,11 @@ const Consumer = ({navigation}) => {
                 <Buttonx navigation={navigation}/>
            </View>
            <View style={[{height:heightValue(4),width:widthValue(1)}]}>
-                <Logincards name={'CONSUMER'} secondname={'ID'} showconsumer={true} heightval={true}/>
+                <Logincards name={'CONSUMER'} secondname={'ID'} showconsumerid={true} heightval={true} onChangeText={(val)=>setsonsumer(val)}/>
            </View>
-            <TouchableOpacity onPress={handlesignup}>
-                <View style={[{height:heightValue(16),width:widthValue(4)},styles.bggreyish,radius(30),styles.allCenter,marginPosition(30)]}>
+         
+            <TouchableOpacity disabled={!showbtn} onPress={handlesignup}>
+                <View style={[{height:heightValue(16),width:widthValue(4)},showbtn?styles.bggreenish:styles.bggreyish,radius(30),styles.allCenter,marginPosition(30)]}>
                     <Text style={[styles.white]}>Next</Text>
                 </View>
               </TouchableOpacity>

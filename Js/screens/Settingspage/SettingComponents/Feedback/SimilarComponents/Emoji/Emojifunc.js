@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import { styles } from '../../../../../../../styles/Styles';
-const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
+import { marginPosition, styles, widthValue } from '../../../../../../../styles/Styles';
+const Emojifunc = ({size,afterpressed,getdatafromparent,val,right}) => {
     let num=size
     let after=afterpressed
     const [arr, setArr] = useState([
@@ -29,7 +29,7 @@ const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
         // getdatafromparent(sendFeedback)
       };
   return (
-    <View style={[styles.row, styles.spaceBetween]}>
+    <View style={[styles.row, styles.spaceAroundVertical,{width:widthValue(val)},styles.allCenter]}>
     {arr.map((data,index) => (
       <TouchableOpacity key={index} onPress={() => toggleColor(data.id)}>
         <View >
@@ -37,7 +37,8 @@ const Emojifunc = ({size,afterpressed,getdatafromparent}) => {
             name={data.icon}
             style={[
               { fontSize: data.showicon ? afterpressed : size },
-              { color: data.showicon ? '#28b085' : '#64ad64' }
+              { color: data.showicon ? '#28b085' : '#64ad64' },
+               {marginRight:right}
             ]}
           />
         </View>

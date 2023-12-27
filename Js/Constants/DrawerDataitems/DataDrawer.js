@@ -100,7 +100,7 @@ export const drawerItems = [
         'children':null
     },
     {
-        "name": 'Customer Engagement',
+        "name": 'CustomerEngagement',
         'label':'Customer Engagement',
         'component': '',
         'icon':'',
@@ -122,7 +122,7 @@ export const drawerItems = [
         'children':null
     },
     {
-    "name": 'Contact Us',
+    "name": 'ContactUs',
     'label':'Contact Us',
     'component': '',
     'icon':'at-sign',

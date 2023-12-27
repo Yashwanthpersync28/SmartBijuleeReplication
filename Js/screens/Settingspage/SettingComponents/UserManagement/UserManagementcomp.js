@@ -21,7 +21,11 @@ import Result from './Result';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
 import {ToggleBullets} from './ToggleBullets';
+import { useSelector } from 'react-redux';
 const UserManagementcomp = () => {
+
+  const darkMode = useSelector((state)=>state.system.darkMode)
+  
   const [name, setname] = useState('');
   const [number, setnumber] = useState('');
   const [count, setcount] = useState(0);
@@ -50,7 +54,7 @@ const UserManagementcomp = () => {
     <SafeAreaView>
       <View
         style={[
-          styles.bglightblack,
+          darkMode?styles.bglightWhite:styles.bglightblack,
           {height: heightValue(1), width: widthValue(1)},
           styles.centerHorizontal,
         ]}>

@@ -3,24 +3,26 @@ import { View,Text,Dimensions } from 'react-native'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { heightValue,widthValue,marginPosition,styles,fontSize ,radius} from '../../../../styles/Styles';
 import { VictoryChart,VictoryBar,VictoryAxis } from 'victory-native';
+import { useSelector } from 'react-redux';
 let odd=[
     {month:1,earnings:2},{month:3,earnings:4},{month:5,earnings:2},{month:7,earnings:1},{month:9,earnings:2}]
    let even=[{month:2,earnings:3},{month:4,earnings:5},{month:6,earnings:2},{month:8,earnings:3},{month:10,earnings:5},]
 const Oppositecolors = () => {
     let {height,width}=Dimensions.get('window') 
-
+    const darkMode = useSelector((state)=>state.system.darkMode)
+ 
   return (
-    <View style={[{height:heightValue(7.3),width:widthValue(1.1)},marginPosition('3%',0,'5%','5%'),styles.bgdashblue,radius(10)]}>
+    <View style={[{height:heightValue(7.3),width:widthValue(1.1)},marginPosition('3%',0,'5%','5%'),darkMode?styles.bgWhite:styles.bgdashblue,radius(10)]}>
     <View style={[styles.row]}>
     <View style={[styles.column,{width:widthValue(3.5),height:heightValue(7)},styles.centerVertical,marginPosition(0,0,0,15)]}>
        <FontAwesome5Icon name='chevron-up' style={[styles.lightgreen,fontSize(15)]}/>
         <Text style={[styles.green,fontSize(25)]}>0</Text>
-        <Text style={[styles.white,fontSize(12)]}>Units</Text>
+        <Text style={[darkMode?styles.black:styles.white,fontSize(12)]}>Units</Text>
         </View>  
          <View style={[styles.column]}>
              
                  <View style={[styles.row,marginPosition('5%',0,'0%','5%'),styles.selfStart]}>
-                   <Text style={[styles.white,fontSize(20)]}>Average</Text>
+                   <Text style={[darkMode?styles.black:styles.white,fontSize(20)]}>Average</Text>
                    <Text style={[styles.green,fontSize(20),{marginLeft:widthValue(50)}]}>Consumption</Text>
                  </View> 
                

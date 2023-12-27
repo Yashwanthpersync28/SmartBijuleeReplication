@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { baseurl } from '../Constants/Apiurl';
 import { baseurl } from '../Constants';
 const apiBaseUrl = baseurl
 class ApiClient {
@@ -7,7 +8,7 @@ class ApiClient {
         axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
         axios.defaults.headers.common['Cache-Control'] = 'no-cache, no-store';
         axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.headers.common['uid'] = token;
         if (token) {
             // axios.defaults.headers.common['Authorization'] = token;
@@ -15,16 +16,13 @@ class ApiClient {
     }
 
     async get(url, token, additionalHeaders, params) {
-        console.log("sdckjahbsdckajsdhbcaksdjhbcasdc", token)
         ApiClient.headersPromise(token);
-        console.log("svkjhsbdfkvjhsdfbkvsjhdfbvsdfv", url,"=====" ,token, "=====", additionalHeaders)
         if(additionalHeaders){
             let keys = Object.keys(additionalHeaders);
             keys.forEach(h =>{
                 axios.defaults.headers.common[h] = additionalHeaders[h].value;
             });
         }
-        console.log("kdbckjahsbdvckasdvbaksjdbcvasda", apiBaseUrl + url)
         return(await axios.get(apiBaseUrl + url));
     }
 

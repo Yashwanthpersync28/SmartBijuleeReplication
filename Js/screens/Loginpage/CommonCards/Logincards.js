@@ -14,12 +14,14 @@ import Inputbox from './Inputbox';
 import {useState} from 'react';
 import Passwordinputbox from './Passwordinputbox';
 
-const Logincards = ({ inputvalueOTP, name, secondname, showpassword, showconsumer, showmobile, showotp, heightval,onChangeText, id, onChangePass, keyboardType, password }) => {
+const Logincards = ({ editable,onChangeconfPass ,showconfpassword , maxLength , number, name, secondname, showpassword, showconsumer, showmobile, showotp, heightval,onChangeText, id, onChangePass, keyboardType, password , showconsumerid}) => {
   
   const [numid, setnumid] = useState(false);
   const [passid, setpassid] = useState(false);
   const [otpid, setotpid] = useState(false);
   const [focus, setfocus] = useState(false);
+  const [confpassid, setconfpassid] = useState(false);
+  const [consumerid,setconsumerid]=useState(false)
 
   return (
     <View style={[styles.allCenter]}>
@@ -70,7 +72,9 @@ const Logincards = ({ inputvalueOTP, name, secondname, showpassword, showconsume
               onBlur={() => setnumid(!numid)}
               focuss={numid}
               // onChangeText={onChangeText}
-              inputvalueOTP={inputvalueOTP}
+              keyboardType={keyboardType}
+              number={number}
+              editable={editable}
             />
           ) : null}
           {showotp ? (
@@ -79,13 +83,14 @@ const Logincards = ({ inputvalueOTP, name, secondname, showpassword, showconsume
               onFocus={() => setotpid(!otpid)}
               onBlur={() => setotpid(!otpid)}
               focuss={otpid}
-              // onChangeText={onChangeText}
+              onChangeText={onChangeText}
               keyboardType={keyboardType}
+              maxLength={maxLength}
             />
           ) : null}
           {showpassword ? (
             <Passwordinputbox
-              name={'PASSWORD'}
+              name={'Password'}
               onFocus={() => setpassid(!passid)}
               onBlur={() => setpassid(!passid)}
               focuss={passid}
@@ -93,6 +98,28 @@ const Logincards = ({ inputvalueOTP, name, secondname, showpassword, showconsume
               password={password}
             />
           ) : null}
+          {showconfpassword ? (
+            <Passwordinputbox
+              name={'Confirm Password'}
+              onFocus={() => setconfpassid(!confpassid)}
+              onBlur={() => setconfpassid(!confpassid)}
+              focuss={confpassid}
+              onChangePass={onChangeconfPass}
+              password={password}
+            />
+          ) : null}
+          {showconsumerid ? (
+            <Inputbox
+              name={'CONSUMER ID'}
+              onFocus={() => setconsumerid(!consumerid)}
+              onBlur={() => setconsumerid(!consumerid)}
+              focuss={consumerid}
+              onChangeText={onChangeText}
+              keyboardType={keyboardType}
+              maxLength={maxLength}
+            />
+          ) : null}
+         
         </View>
       </View>
     </View>

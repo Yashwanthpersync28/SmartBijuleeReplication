@@ -15,7 +15,10 @@ import Header from '../CommonComponents/Cards/Header';
 import Menu from '../CommonComponents/Cards/Menu';
 import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper';
 import {SafeAreaView} from 'react-native';
+import { useSelector } from 'react-redux';
 const Notifications = ({navigation}) => {
+  const darkMode = useSelector((state)=>state.system.darkMode)
+
   let heading = 'Be';
   let continueprop = 'Notified';
   let details = 'Engage with the Utility via notifictions';
@@ -25,7 +28,7 @@ const Notifications = ({navigation}) => {
         <View
           style={[
             {height: heightValue(1), width: widthValue(1)},
-            styles.bglightblack,
+            darkMode?styles.bglightWhite:styles.bglightblack,
           ]}>
           <Menu navigation={navigation} />
           <Header

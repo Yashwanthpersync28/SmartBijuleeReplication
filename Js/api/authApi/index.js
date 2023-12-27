@@ -1,1 +1,1 @@
-export { userVerifyApi, otpVerifyApi } from "./loginApi";
+export { userVerifyApi, otpVerifyApi , userpasswordApi } from "./loginApi";

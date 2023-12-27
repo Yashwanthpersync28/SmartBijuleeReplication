@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { View ,Text, KeyboardAvoidingView} from 'react-native'
+import { View ,Text, KeyboardAvoidingView, ScrollView} from 'react-native'
 import {  flex,  styles, } from '../../../../../styles/Styles'
 import PassTextInput from './PassTextInput'
 // import { KeyboardAvoidingView } from 'react-native'
 const CheckPassword = () => {
+  
+  
     const [newPassword, setNewPassword] = useState('');
     let [password,setPassword]=useState(true)
     let [Error,setError]=useState('')
@@ -47,6 +49,7 @@ const CheckPassword = () => {
           };
   return (
     <KeyboardAvoidingView behavior='position' style={[flex(1), styles.column, styles.allCenter]}>
+    
     <View style={[flex(1),styles.column,styles.allCenter]}>
         <PassTextInput name={'CURRENT PASSWORD'} handlepass={handlecurrentpassword}/>
         <PassTextInput name={'NEW PASSWORD'} handlepass={handlepassword}/>
@@ -54,6 +57,7 @@ const CheckPassword = () => {
         <Text style={[styles.red]}>{Error}</Text>
         <Text style={[styles.red]}>{confirmPasswordError}</Text>
     </View>
+    
     </KeyboardAvoidingView>
   )
 }

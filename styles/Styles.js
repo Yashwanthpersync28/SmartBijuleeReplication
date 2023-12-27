@@ -206,6 +206,9 @@ export const styles = StyleSheet.create({
     gr:{color:Colors.gr},
     lightgreen:{color:Colors.lightgreen},
     greenHEX:{color:Colors.greenHEX},
+    orange:{color:Colors.orange},
+    greycolor:{color:Colors.greycolor},
+    skyblue:{color:Colors.skyblue},
 // - - - - - BACKGROUND COLORS - - - - - //
     bgWhite: { backgroundColor: Colors.white },
     bgBlack: { backgroundColor: Colors.black },
@@ -224,9 +227,9 @@ export const styles = StyleSheet.create({
     bgdashblue:{backgroundColor:Colors.dashblue},
     dashboardcolour:{backgroundColor:Colors.dashboardcolor},
     bggreenHEX:{backgroundColor:Colors.greenHEX},
-
-
-
+    bglightWhite:{backgroundColor:Colors.lightWhite},
+    bggreycolor:{backgroundColor:Colors.greycolor},
+   bgskyblue:{backgroundColor:Colors.skyblue},
     
 // - - - - - BORDER COLORS - - - - - //
     borderWhite: { borderColor: Colors.white },

@@ -1,13 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { DrawerContentScrollView,DrawerItem,DrawerItemList } from '@react-navigation/drawer'
 import { View ,Text, ImageBackground} from 'react-native'
 import { flex, fontSize, heightValue, heightwidth, marginPosition, styles, widthValue } from '../../../styles/Styles'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import navdata from '../TextInput/NavigationScreens/Screensdata'
+import { useSelector } from 'react-redux'
 // import navdata from '../TextInput/NavigationScreens/Screensdata'
 const CustomDrawer = (props) => {
     name='Esyatest3'
     let ID='C000003'
+
   return (
     <View style={[flex(1),{backgroundColor:"#282f42"}]}>
         <DrawerContentScrollView 

@@ -84,13 +84,15 @@ const SignupPage = ({navigation}) => {
   };
 
   return (
-    <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>  
-    <ScrollView> 
+    <View style={[styles.bglightblack,{width:widthValue(1)}]}>  
+     <ScrollView showsVerticalScrollIndicator={false}> 
     <Buttonx navigation={navigation}/>
+   
       <View style={[{height:heightValue(1.2)},styles.allCenter]}>
             <View style={[styles.bggreenish,{height:heightValue(50),width:widthValue(2.2)},radius(30,30,0,0)]}></View>
             <View style={[styles.bggreen,{height:heightValue(50),width:widthValue(1.7)},radius(30,30,0,0)]}></View>
             <View style={[styles.bggreyish,{width:widthValue(1.3)},radius(30),padding(25)]}>
+              
                 <View style={[styles.row,marginPosition(0,0,8)]}>
                     <Text style={[fontSize(20),styles.white]}>Create</Text>
                     <Text style={[fontSize(20),styles.green,marginPosition(0,0,0,5)]}>Account</Text>
@@ -179,7 +181,7 @@ const SignupPage = ({navigation}) => {
   
     </View>
         
-                
+       
             </View>
       </View>
      

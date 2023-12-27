@@ -16,8 +16,10 @@
     VictoryChart,
     VictoryLine,
   } from 'victory-native';
+import { useSelector } from 'react-redux';
   
   const Linegraph = () => {
+  const darkMode = useSelector((state)=>state.system.darkMode)
    
     const datas = [
       { time: '10AM', voltage: 10 },
@@ -34,7 +36,6 @@
     return (
       <View
         style={[
-          styles.bgbarback,
           radius(15),
           {width: widthValue(1.15), height: heightValue(7)},
           padding(0, 10, 20),
@@ -42,7 +43,7 @@
           styles.row,
         ]}>
         <View style={[styles.selfStart]}>
-          <Text style={[styles.fontwhite, fontSize(15)]}>
+          <Text style={[darkMode ? styles.black:styles.white, fontSize(15)]}>
             Peak<Text style={[styles.green]}> Quality</Text>
           </Text>
           <View style={[{width: widthValue(2), height: heightValue(5)}]}>
@@ -60,7 +61,7 @@
                 interpolation={'natural'}
                 x={'time'}
                 y={'voltage'}
-                style={{data: {stroke: 'green'}}}
+                style={{data: {stroke: '#2e592e'}}}
                 // scale={{y: heightValue(20) / (datas.length - 1)}}
               />
               <VictoryAxis
@@ -82,16 +83,16 @@
             </VictoryChart>
           </View>
         </View>
-        <View style={[styles.centerHorizontal, styles.spaceBetween]}>
+        <View style={[styles.centerHorizontal, styles.spaceBetween,marginPosition(0,0,0,40),{width:widthValue(4.2)}]}>
           <View style={[styles.row, styles.allCenter]}>
-            <Text style={[styles.fontwhite]}>12am</Text>
+            <Text style={[darkMode ? styles.black:styles.white,]}>12am</Text>
             <Fontawesome5
               name={'chevron-up'}
               style={[styles.green, fontSize(13),marginPosition(0,0,0,5)]}
             />
           </View>
-          <Text style={[styles.green, fontSize(30)]}>0</Text>
-          <Text style={[styles.fontwhite, fontSize(13)]}>Voltage</Text>
+          <Text style={[styles.green, fontSize(30),marginPosition(0,0,0,40)]}>0</Text>
+          <Text style={[darkMode ? styles.black:styles.white,, fontSize(13),marginPosition(0,0,0,20)]}>Voltage</Text>
         </View>
       </View>
     );

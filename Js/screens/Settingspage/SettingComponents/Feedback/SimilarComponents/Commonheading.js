@@ -6,10 +6,12 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 const Commonheading = ({name}) => {
   return (
 
-        <View style={[{height:heightValue(13.5)},styles.row,styles.allCenter,borderWidth(0,0,0,1),borderColor('green')]}>
+        <View style={[{height:heightValue(13.5)},styles.spaceAroundVertical,styles.row,borderWidth(0,0,0,1),borderColor('green')]}>
            <FontAwesome5Icon name='smile-beam' style={[fontSize(50),styles.green,marginPosition(0,0,5)]}/>
+               <View style={[styles.row,styles.allCenter]}>
                 <Text style={[styles.white,fontSize(18),marginPosition(0,0,0,5)]}>What Made You</Text>
-                 <Text style={[styles.green,fontSize(18),marginPosition(0,0,0,5)]}>{name}</Text>
+                 <Text style={[styles.green,fontSize(18),marginPosition(0,0,0,5)]}>{name} ?</Text>
+                 </View>
             </View>
       
   )

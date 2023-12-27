@@ -6,17 +6,19 @@ import UiSettings from './UiSettings';
 import { Appdata, General, Profiledata } from '../SettingsData/Settingsdatas';
 import DrawerScreenWrapper from '../../Drawer/DrawerScreenWrapper';
 import { SafeAreaView } from 'react-native';
+import { useSelector } from 'react-redux';
 const Setting = ({navigation}) => {
+  const darkMode = useSelector((state)=>state.system.darkMode)
    
   return (
     <DrawerScreenWrapper>
       <SafeAreaView>
-   <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>
+   <View style={[ darkMode?styles.bglightWhite:styles.bglightblack,{height:heightValue(1),width:widthValue(1)}]}>
    <Menu navigation={navigation}/>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.allCenter,marginPosition(0,0,20)]}>
               <View style={[{height:heightValue(16),width:widthValue(1.1)},styles.centerVertical,]}>
-                    <Text style={[styles.white,fontSize(35)]}>Settings</Text>
+                    <Text style={[darkMode?styles.black:styles.white,fontSize(35)]}>Settings</Text>
               </View>
               <UiSettings arr={Profiledata} name='Profile' secondname="Settings" navigation={navigation}/>
               <UiSettings arr={Appdata} name='App' secondname="Settings" navigation={navigation}/>

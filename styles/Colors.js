@@ -20,5 +20,9 @@ export const Colors =  {
     gr:"#ada7a8",
     dashblue:'#29292e',
     dashboardcolor:"#282f42",
-    greenHEX:'#64ad64'
+    greenHEX:'#64ad64',
+    orange:'#d64d09',
+    lightWhite:"#f0ebeb",
+    greycolor:"#cfcccc",
+    skyblue:"#f5fcfc",
 }

@@ -7,6 +7,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
 import Inputbox from '../../../Loginpage/CommonCards/Inputbox'
 import FillInput from './FillInput'
 import DropdownMenu from './Dropdown'
+import { useSelector } from 'react-redux'
 const FillDetails = ({onChangeText, onnumberChange , onchangeDropdown , count }) => {
 
 
@@ -15,6 +16,7 @@ const FillDetails = ({onChangeText, onnumberChange , onchangeDropdown , count })
     const [errorname,seterrorname]=useState('');
     const [select,setselect]=useState('')
     const[name,setname]=useState(false);
+    const darkMode = useSelector((state)=>state.system.darkMode)
 
     // useEffect(() => {
     //     setIsDisabled(number && name );
@@ -61,8 +63,8 @@ const FillDetails = ({onChangeText, onnumberChange , onchangeDropdown , count })
         <View style={[flex(1)]}>
             
             <View style={[ { height: heightValue(2.6) }, padding(30), styles.allCenter]}>
-                <View style={[styles.row, { width: widthValue(1.3) }, marginPosition(10, 0, 0)]}>
-                    <Text style={[styles.white]}>Fill the</Text>
+                <View style={[styles.row, { width: widthValue(1.3) }, marginPosition(30, 0, 0)]}>
+                    <Text style={[darkMode?styles.black:styles.white]}>Fill the</Text>
                     <Text style={[styles.green, marginPosition(0, 0, 0, 5)]}>Details</Text>
                 </View>
                 <FillInput name={'Name'} getfromchild={namevalidation}/>

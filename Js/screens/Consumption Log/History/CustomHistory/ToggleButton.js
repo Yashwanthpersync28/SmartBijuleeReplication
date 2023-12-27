@@ -5,9 +5,11 @@ import Customhistory from './Customhistory';
 import Swiper from 'react-native-swiper';
 import Axisgraph from '../Axisgraph';
 import { obj } from '../../../GraphData/Graphdatas';
+import { useSelector } from 'react-redux';
 
 export const ToggleButton = ({ onchangeCustom }) => {
   const swiper = useRef();
+  const darkMode = useSelector((state)=>state.system.darkMode)
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [custom, setCustom] = useState(false);
@@ -50,25 +52,25 @@ export const ToggleButton = ({ onchangeCustom }) => {
   return (
     <View style={[{ height: heightValue(1.9), width: widthValue(1.1) }]}>
       <View style={[{ height: heightValue(14), width: widthValue(1.1) }, styles.allCenter]}>
-        <View style={[styles.bgdashblue, styles.allCenter, styles.spaceBetween,styles.row, { height: heightValue(24), width: widthValue(1.1) }, radius(10)]}>
+        <View style={[darkMode?styles.bgskyblue:styles.bgdashblue, styles.allCenter, styles.spaceBetween,styles.row, { height: heightValue(24), width: widthValue(1.1) }, radius(10)]}>
           <TouchableOpacity onPress={handleCustom}>
-            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter , { backgroundColor: custom ? '#39763b' : '#29292e' },radius(10)]}>
-              <Text style={[styles.white]}>Custom</Text>
+            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter , { backgroundColor: custom ? '#39763b' : darkMode ? '#f5fcfc' :'#29292e' },radius(10)]}>
+              <Text style={[fontSize(18),{ color: custom ? darkMode ? '#ffffff': 'black' : darkMode ? 'black' : '#ffffff' }]}>Custom</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleToggle(0)}>
-            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: today ? '#39763b' : '#29292e' },radius(10)]}>
-              <Text style={[fontSize(18),styles.white]}>Today</Text>
+            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: today ? '#39763b' : darkMode ? '#f5fcfc' :'#29292e' },radius(10)]}>
+              <Text style={[fontSize(18),{ color: today ? darkMode ? '#ffffff': 'black' : darkMode ? 'black' : '#ffffff' }]}>Today</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleToggle(1)}>
-            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: week ? '#39763b' : '#29292e' },radius(10)]}>
-              <Text style={[fontSize(18),styles.white]}>Week</Text>
+            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: week ? '#39763b' : darkMode ? '#f5fcfc' :'#29292e' },radius(10)]}>
+              <Text style={[fontSize(18),{ color: week ? darkMode ? '#ffffff': 'black' : darkMode ? 'black' : '#ffffff' }]}>Week</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleToggle(2)}>
-            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: month ? '#39763b' : '#29292e' },radius(10)]}>
-              <Text style={[fontSize(18),styles.white]}>Month</Text>
+            <View style={[{ height: heightValue(24), width: widthValue(5) }, styles.allCenter, { backgroundColor: month ? '#39763b' : darkMode ? '#f5fcfc' :'#29292e' },radius(10)]}>
+              <Text style={[fontSize(18),{ color: month ? darkMode ? '#ffffff': 'black' : darkMode ? 'black' : '#ffffff' }]}>Month</Text>
             </View>
           </TouchableOpacity>
         </View>

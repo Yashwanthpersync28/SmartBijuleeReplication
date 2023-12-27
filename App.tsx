@@ -7,9 +7,11 @@ import SmartBijule from './Js/SmartBijule';
 
 
 
+
 function App() {
   
   return (
+    
      <SmartBijule/>
 
   )

@@ -4,7 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {stackarray} from './screens/StackNavigation/Stackdata/Stackdatas';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import store, {persistor} from './Redux/store';
+import store, { persistor } from './Redux/store';
+// import store, {persistor} from './Redux/store';
 
 const Stack = createStackNavigator();
 

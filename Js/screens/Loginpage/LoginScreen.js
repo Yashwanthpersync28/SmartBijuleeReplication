@@ -1,60 +1,131 @@
-import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, Image, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import { flex, heightValue, styles, widthValue, heightwidth, marginPosition, radius, fontSize } from '../../../styles/Styles';
 import Logincards from './CommonCards/Logincards';
 import {useDispatch, useSelector} from 'react-redux';
-import {userVerifyApi} from '../../api/authApi';
-import {eventlistApi} from '../../api/authApi/get/dummy';
+import { userVerifyApi } from '../../api/authApi';
+import LottieView from 'lottie-react-native';
+import DeviceInfo from 'react-native-device-info';
 
 const LoginScreen = ({navigation}) => {
-  const [error, seterror] = useState('');
   const [id, setId] = useState('');
   const [password, setpasword] = useState('');
-  const [count, setcount] = useState(0);
-  console.log('sdjvhbsdvadsv', id);
-  console.log('fvgbhnjmk', password);
+  const [loading,setloading]=useState('Send otp')
+  const [showbtn,setshowbtn]=useState(false);
   const dispatch = useDispatch();
+  const globalVariable = useSelector((state)=>state)
+  console.log('globalVariable',globalVariable);
 
+  const userSelector=useSelector((state)=>state.auth.userVerify)
+  const [showloading,setshowloading]=useState(false);
+  
   const login = async () => {
-    console.log('kuygf');
-    // const loginResp = await dispatch(userVerifyApi());
-    // console.log('hgfjndkm',loginResp);
-    const loginresp = await dispatch(
-      userVerifyApi({
-        loginID: id,
-        password: password,
-        confirmation: 'Y',
-        deviceInfo: {
-          deviceID: '122323',
-          deviceMake: 'android',
-          deviceOS: 'android',
-          deviceOSVersion: '12.1',
-        },
-      }),
-    );
-    console.log('loginResp', loginresp);
+    const deviceID = await DeviceInfo.getUniqueId();
+    const deviceMake = await DeviceInfo.getManufacturer();
+    const deviceOS = await DeviceInfo.getSystemName();
+    const deviceOSVersion = await DeviceInfo.getSystemVersion();
+    
+    console.log('dxfcgvhbjnkl',deviceID,deviceMake,deviceOS,deviceOSVersion);
+    setloading('Loading');
+    setshowloading(true)
+    const loginresp = await dispatch(userVerifyApi(
+      {
+            "LoginID": id,
+            "password": password,
+            "confirmation": "N",
+            "deviceInfo": {
+            "deviceID": deviceID,
+            "deviceMake": deviceMake,
+            "deviceOS": deviceOS,
+            "deviceOSVersion": deviceOSVersion
+          } 
+
+    }
+    ));
+   
+    console.log("login",loginresp);
+
+
     if(loginresp.payload.status === 201){
-    navigation.navigate("otp", {data: id, mobileNumber: loginresp.payload.data.MobileNumber})
-    seterror('')
+      const CustomerDetails = loginresp.payload.data.MobileNumber
+      const loginId = loginresp.meta.arg.LoginID;
+      navigation.navigate('otp',{
+        data:CustomerDetails,
+        Id:loginId,
+      })
+    setloading('Send Otp');
+    setshowloading(false)
+      setLoginError('')
+      console.log(CustomerDetails,);
+      console.log('loginId',loginId);
+      console.log('checkload',loginresp.meta.requestStatus);
+      
     }
     else{
-     if(count === 0){
-      setcount(count+1)
-      seterror('You have made 1 login failed attempts left with 2 Retry')
-     }
-     else if(count===1){
-      setcount(count+1)
-      seterror("You have made 2 login failed attempts left with 1 Retry")
-     }
-     else if(count===2){
-      setcount(count+1)
-      seterror("You Account is blocked due to 3 failed attempts please try after 24hours or reset the password for instant login")
-     }
+      setloading('Send Otp')
+      setshowloading(false)
 
-    }
+    } 
+    const confirmResp= await dispatch(
+      userVerifyApi({
+        "LoginID": id,
+            "password": password,
+            "confirmation": "Y",
+            "deviceInfo": {
+            "deviceID": deviceID,
+            "deviceMake": deviceMake,
+            "deviceOS": deviceOS,
+            "deviceOSVersion": deviceOSVersion}
+      })
+    )
+    console.log('confirmRespone', confirmResp);
+    const CMobileNum = confirmResp.payload.data.MobileNumber;
+   const  CLoginId =  confirmResp.meta.arg.LoginID;
+   console.log('phone:',CMobileNum)
+   console.log('id:',CLoginId)
+ const deviceError = loginresp.payload.data.ErrorDescription;
+ if (deviceError === 'Login device is different') {
+   Alert.alert(
+     'Login device is different',
+     'Do you want to login on this device and logout from all other devices?',
+     [
+       {
+         text: 'CANCEL',
+       },
+       {
+         text: 'CONFIRM',
+         onPress: () => {
+           navigation.navigate('otp',{
+             data: CMobileNum,
+             Id: CLoginId,
+
+           });
+           setloading('Send Otp');
+           setshowloading(false)
+         },
+       },
+      ])}
+      else{
+        setloading('Send Otp')
+        setshowloading(false)
       }
+    
+    
+  };
+  ///THIS IS FOR CHANGING BUTTON COLORS
+  useEffect(()=>{
+    if(id.length>=2 && password.length>=2){
+      setshowbtn(true)
+    }
+    else{
+      setshowbtn(false)
+    }
+ },[id,password])
   
-
+      // if(loginresp.payload.status === 201){
+      //   navigation.navigate("otp", {data: id, mobileNumber: loginresp.payload.data.MobileNumber})
+      //   seterror('')
+      //   }
   return (
     <ScrollView>
       <View
@@ -88,22 +159,23 @@ const LoginScreen = ({navigation}) => {
         <View style={[flex(1), styles.centerHorizontal]}>
           <View style={[styles.allCenter, {width: widthValue(1.4)}]}>
             <Text style={[styles.red, fontSize(13), marginPosition(20)]}>
-              {error}
+             {userSelector?.error}
             </Text>
           </View>
+          <TouchableOpacity disabled={!showbtn} onPress={login} style={[styles.row,styles.allCenter, flex(0.4), marginPosition(20),]}>
           <View
             style={[
-              marginPosition(20),
-              flex(0.4),
-              {width: widthValue(2.8)},
-              styles.bggreyish,
+              {width:widthValue(2.8),height:heightValue(17), backgroundColor: showbtn ? '#39763b' : '#262f40'},
               radius(30),
               styles.allCenter,
+              styles.row
             ]}>
-            <TouchableOpacity onPress={login}>
-              <Text style={[styles.white, fontSize(20)]}>Send Otp</Text>
-            </TouchableOpacity>
+              <Text style={[styles.white, fontSize(18)]}>{loading}</Text>
+              {showloading ? 
+            <LottieView style={{height:25,width:25}} source={require('../Assetslottie/loadingtwo.json')} autoPlay />:null}
+           
           </View>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('forgotpassword')}>
             <Text style={[styles.white, marginPosition(10), fontSize(17)]}>

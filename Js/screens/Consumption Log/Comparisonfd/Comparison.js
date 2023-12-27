@@ -21,8 +21,10 @@ import Menu from '../../CommonComponents/Cards/Menu';
 import Header from '../../CommonComponents/Cards/Header';
 import {weekly} from '../../CommonComponents/Cards/DataWeekly/DataMonthly';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import { useSelector } from 'react-redux';
 
 const Comparison = ({navigation}) => {
+  const darkMode = useSelector((state)=>state.system.darkMode)
   let details =
     'Compare Your daily, weekly & monthly consumption to keep a tab on electricity usage';
   let heading = 'Unit';
@@ -33,7 +35,7 @@ const Comparison = ({navigation}) => {
         <View
           style={[
             {height: heightValue(1), width: widthValue(1)},
-            styles.bglightblack,
+            darkMode?styles.bglightWhite:styles.bglightblack,
           ]}>
           <Menu navigation={navigation} />
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -65,7 +67,7 @@ const Comparison = ({navigation}) => {
             <View
               style={[
                 {height: heightValue(6), width: widthValue(1.1)},
-                styles.bgdashblue,
+                darkMode?styles.bgWhite:styles.bgdashblue,
                 marginPosition(13, 0, 50, 20),
                 styles.column,
                 radius(15),
@@ -73,7 +75,7 @@ const Comparison = ({navigation}) => {
                 styles.selfStart,
               ]}>
               <View style={[styles.row]}>
-                <Text style={[styles.white, fontSize(19)]}>Monthly</Text>
+                <Text style={[darkMode?styles.black:styles.white, fontSize(19)]}>Monthly</Text>
                 <Text
                   style={[
                     styles.green,
@@ -86,7 +88,7 @@ const Comparison = ({navigation}) => {
               <View style={[styles.column]}>
                 <Text
                   style={[
-                    styles.white,
+                    darkMode?styles.black:styles.white,
                     marginPosition(5, 0, 5, 5),
                     fontSize(12),
                   ]}>
@@ -96,7 +98,7 @@ const Comparison = ({navigation}) => {
                   <View
                     style={[
                       {
-                        backgroundColor: '#3c3c42',
+                        backgroundColor: darkMode ? '#cfcccc' : '#3c3c42',
                         height: heightValue(60),
                         width: widthValue(1.6),
                       },
@@ -120,7 +122,7 @@ const Comparison = ({navigation}) => {
               <View style={[styles.column]}>
                 <Text
                   style={[
-                    styles.white,
+                    darkMode?styles.black:styles.white,
                     marginPosition(0, 0, 5, 5),
                     fontSize(12),
                   ]}>
@@ -130,7 +132,7 @@ const Comparison = ({navigation}) => {
                   <View
                     style={[
                       {
-                        backgroundColor: '#3c3c42',
+                        backgroundColor: darkMode ? '#cfcccc' : '#3c3c42',
                         height: heightValue(60),
                         width: widthValue(1.6),
                       },
@@ -139,7 +141,7 @@ const Comparison = ({navigation}) => {
                     ]}></View>
                   <Text
                     style={[
-                      styles.white,
+                      darkMode?styles.black:styles.white,
                       fontSize(12),
                       marginPosition(0, 0, 0, 5),
                     ]}>

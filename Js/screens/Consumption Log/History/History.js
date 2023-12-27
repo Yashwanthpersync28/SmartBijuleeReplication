@@ -8,6 +8,7 @@ import Menu from '../../CommonComponents/Cards/Menu';
 import Header from '../../CommonComponents/Cards/Header';
 import Oppositecolors from '../../CommonComponents/Cards/Oppositecolors';
 import { ToggleButton } from './CustomHistory/ToggleButton';
+import { useSelector } from 'react-redux';
 
 const History = ({navigation}) => {
 
@@ -15,11 +16,12 @@ const History = ({navigation}) => {
   const comp="Historic Electricity Consumption";
  
   const details="Historic consumption details on your finger tips"
+  const darkMode = useSelector((state)=>state.system.darkMode)
     
   return (
     <DrawerScreenWrapper> 
       <SafeAreaView>
-         <View style={[{height:heightValue(1),width:widthValue(1)},styles.bglightblack]}>
+         <View style={[{height:heightValue(1),width:widthValue(1)},darkMode?styles.bglightWhite:styles.bglightblack]}>
               <Menu navigation={navigation}/>
         <ScrollView showsVerticalScrollIndicator={false}> 
            <View style={[marginPosition(-10)]}>
@@ -29,8 +31,8 @@ const History = ({navigation}) => {
               <ToggleButton onchangeCustom={(val)=>setshowcomp(val)}/>
            {showcomp ? 
                <View style={[styles.white,marginPosition(0,0,20,0),styles.allCenter]}>
-                   <Text style={[styles.green,fontSize(12)]}>? X-axis Hours and Y-axis Consumption</Text>
-                  <Text style={[styles.white,fontSize(11)]}>(Click on the chart to see the value)</Text>
+                   <Text style={[styles.green,fontSize(13)]}>? X-axis Hours and Y-axis Consumption</Text>
+                  <Text style={[darkMode?styles.black:styles.white,fontSize(11)]}>(Click on the chart to see the value)</Text>
                </View>:null}
           </View>
             {showcomp ? <>

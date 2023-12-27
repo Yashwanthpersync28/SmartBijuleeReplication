@@ -21,11 +21,16 @@ import {
 } from '../../../styles/Styles';
 import Menu from '../CommonComponents/Cards/Menu';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {usefuldata} from './Datas/UsefulDatas';
 import DrawerScreenWrapper from '../Drawer/DrawerScreenWrapper';
-import FontAwesome6Icon from 'react-native-vector-icons/FontAwesome6';
+// import FontAwesome6Icon from 'react-native-vector-icons/FontAwesome6';
+import { useSelector } from 'react-redux';
 
 const Usefullinks = ({navigation}) => {
+  const darkMode = useSelector((state)=>state.system.darkMode)
+
   const [data, setdata] = useState(usefuldata);
   const [text, settext] = useState('');
 
@@ -47,11 +52,11 @@ const Usefullinks = ({navigation}) => {
         <View
           style={[
             {height: heightValue(1), width: widthValue(1)},
-            styles.bglightblack,
+            darkMode?styles.bglightWhite:styles.bglightblack,
             styles.centerHorizontal,
           ]}>
           <Menu navigation={navigation} />
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={[styles.allCenter, {width: widthValue(1.1)}]}>
               <View
                 style={[
@@ -59,7 +64,7 @@ const Usefullinks = ({navigation}) => {
                   styles.allCenter,
                   marginPosition(0, 0, 20),
                 ]}>
-                <Text style={[styles.white, fontSize(20)]}>APDCL</Text>
+                <Text style={[darkMode?styles.black:styles.white, fontSize(20)]}>APDCL</Text>
                 <Text
                   style={[
                     styles.green,
@@ -73,55 +78,55 @@ const Usefullinks = ({navigation}) => {
                 style={[
                   padding(20, 0, 20, 0),
                   {height: heightValue(14), width: widthValue(1.2)},
-                  styles.bgdashblue,
+                 darkMode?styles.bgWhite:styles.bgdashblue,
                   radius(40),
                   styles.row,
                   styles.allCenter,
                 ]}>
-                <FontAwesome5Icon
-                  name="question"
-                  style={[fontSize(15), styles.white]}
+                <MaterialIcons
+                  name="question-mark"
+                  style={[fontSize(25), darkMode?styles.black:styles.white,]}
                 />
                 <TextInput
                   style={[
-                    styles.white,
+                    darkMode?styles.black:styles.white,
                     fontSize(13),
                     flex(1),
                     {paddingHorizontal: 10},
                   ]}
                   placeholder="Search"
-                  placeholderTextColor="white"
+                  placeholderTextColor={darkMode?'black':'white'}
                   onChangeText={handletext}
                   value={text}
                   onSubmitEditing={() => handletext(text)} // Use onSubmitEditing instead of onPress
                 />
               </View>
               <View style={[styles.centerHorizontal]}>
-                <Text style={[styles.white, fontSize(8), marginPosition(10)]}>
+                <Text style={[darkMode?styles.black:styles.white, fontSize(8), marginPosition(10)]}>
                   Click on title to reduce to specific page to know more
                   information
                 </Text>
               </View>
               <View style={[{width: widthValue(1.1)}, marginPosition(20)]}>
-                <FontAwesome6Icon
-                  name="bolt"
+                <MaterialCommunityIcons
+                  name="lightning-bolt"
                   style={[fontSize(23), styles.green]}
                 />
                 <View
                   style={[
                     {height: heightValue(8), width: widthValue(1.1)},
-                    styles.bgdashblue,
+                    darkMode?styles.bgWhite:styles.bgdashblue,
                     radius(20),
-                    padding(30),
+                    padding(20),
                     marginPosition(10, 0, 30),
                   ]}>
-                  <Text style={[styles.white, fontSize(14)]}>UDAY</Text>
-                  <Text style={[styles.white, fontSize(8), marginPosition(20)]}>
+                  <Text style={[darkMode?styles.black:styles.white, fontSize(14)]}>UDAY</Text>
+                  <Text style={[darkMode?styles.black:styles.white, fontSize(10), marginPosition(20)]}>
                     Ujwal Discom Assurance Yojana
                   </Text>
                 </View>
-                <FontAwesome6Icon
-                  name="bolt"
+                <MaterialCommunityIcons
+                  name="lightning-bolt"
                   style={[fontSize(23), styles.green]}
                 />
                 <View
@@ -140,18 +145,18 @@ const Usefullinks = ({navigation}) => {
                         <View
                           style={[
                             {height: heightValue(6), width: widthValue(2.3)},
-                            styles.bgdashblue,
+                            darkMode?styles.bgWhite:styles.bgdashblue,
                             radius(20),
-                            padding(20),
+                            padding(10),
                             marginPosition(10, 0, 10),
                           ]}>
-                          <Text style={[styles.white, fontSize(14)]}>
+                          <Text style={[darkMode?styles.black:styles.white, fontSize(14)]}>
                             {list.name}
                           </Text>
                           <Text
                             style={[
-                              styles.white,
-                              fontSize(8),
+                              darkMode?styles.black:styles.white,
+                              fontSize(10),
                               marginPosition(30),
                               lineHeight(15),
                             ]}>
@@ -165,7 +170,7 @@ const Usefullinks = ({navigation}) => {
               </View>
               <View
                 style={[styles.centerHorizontal, {height: heightValue(10)}]}>
-                <Text style={[styles.white, fontSize(11)]}>
+                <Text style={[darkMode?styles.black:styles.white, fontSize(11)]}>
                   Copyright @ 2023-APDCL
                 </Text>
               </View>

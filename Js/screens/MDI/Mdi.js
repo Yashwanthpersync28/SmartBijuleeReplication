@@ -16,18 +16,21 @@ import MainCard from '../CommonComponents/Cards/MainCard';
 import {monthly} from '../CommonComponents/Cards/DataWeekly/DataMonthly';
 import Menu from '../CommonComponents/Cards/Menu';
 import Header from '../CommonComponents/Cards/Header';
+import { useSelector } from 'react-redux';
 
 const Mdi = ({navigation}) => {
   let heading = 'Maximum';
   let comp = 'Demand';
   let details = 'Are you surpassing your sanctioned demand ?';
+  const darkMode = useSelector((state)=>state.system.darkMode)
+
   return (
     <DrawerScreenWrapper>
       <SafeAreaView>
         <View
           style={[
             {height: heightValue(1), width: widthValue(1)},
-            styles.bglightblack,
+            darkMode?styles.bglightWhite:styles.bglightblack,
           ]}>
           <Menu navigation={navigation} />
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -69,7 +72,7 @@ const Mdi = ({navigation}) => {
                   radius(15),
                 ]}>
                 <Text style={[styles.white, fontSize(12)]}>
-                  (Click here ti view Current Month's MDI Chart)
+                  (Click here to view Current Month's MDI Chart)
                 </Text>
               </View>
             </View>
@@ -79,10 +82,7 @@ const Mdi = ({navigation}) => {
                 styles.centerHorizontal,
                 marginPosition(5),
               ]}>
-              <View
-                style={[
-                  styles.bgdashblue,
-                  {height: heightValue(7.2), width: widthValue(1.1)},
+              <View style={[ darkMode?styles.bgWhite:styles.bgdashblue,{height: heightValue(7.2), width: widthValue(1.1)},
                   radius(15),
                 ]}>
                 <View
@@ -97,7 +97,7 @@ const Mdi = ({navigation}) => {
                       styles.row,
                       styles.flexEnd,
                     ]}>
-                    <Text style={[styles.white, fontSize(17)]}>Recorded</Text>
+                    <Text style={[darkMode?styles.black:styles.white, fontSize(17)]}>Recorded</Text>
                     <Text
                       style={[
                         styles.green,
@@ -122,10 +122,10 @@ const Mdi = ({navigation}) => {
                       borderWidth(0, 0, 0, 0.8),
                       borderColor('grey'),
                     ]}>
-                    <Text style={[styles.white, fontSize(14)]}>Log Date</Text>
-                    <Text style={[styles.white, fontSize(14)]}>P-MD</Text>
-                    <Text style={[styles.white, fontSize(14)]}>A-MD</Text>
-                    <Text style={[styles.white, fontSize(14)]}>Voltage</Text>
+                    <Text style={[darkMode?styles.black:styles.white ,fontSize(14)]}>Log Date</Text>
+                    <Text style={[darkMode?styles.black:styles.white ,fontSize(14)]}>P-MD</Text>
+                    <Text style={[darkMode?styles.black:styles.white,fontSize(14)]}>A-MD</Text>
+                    <Text style={[darkMode?styles.black:styles.white,fontSize(14)]}>Voltage</Text>
                   </View>
                 </View>
                 <View

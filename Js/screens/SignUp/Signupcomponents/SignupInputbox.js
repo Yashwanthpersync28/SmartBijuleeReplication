@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput} from 'react-native';
 import { styles,heightValue,widthValue,padding,marginPosition,radius,bgColor,borderColor,borderWidth,fontSize } from '../../../../styles/Styles';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Feather from 'react-native-vector-icons/Feather';
 
 const SignupInputbox = ({keyboardType ,height , label, secureTextEntry, value, onChangeText, error , onBlur , onFocus , focuss , star , showeye}) => {
   const [eye,seteye]=useState(showeye);
@@ -22,7 +22,7 @@ const SignupInputbox = ({keyboardType ,height , label, secureTextEntry, value, o
           />
           <View style={[styles.flexEnd,marginPosition(10),styles.bgGray]}>
             {showeye ? 
-            <FontAwesome5Icon name={eye ? 'eye-slash' : 'eye'} onPress={()=>seteye(!eye)} style={[styles.gray,fontSize(15),marginPosition(-40,0,0,0)]}/>:null}
+            <Feather name={eye ? 'eye-off' : 'eye'} onPress={()=>seteye(!eye)} style={[styles.gray,fontSize(25),marginPosition(-40,0,0,0)]}/>:null}
             </View>
             
        </View>

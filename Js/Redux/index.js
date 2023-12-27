@@ -1,9 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { authReducer } from './authReducer';
-import { userReducer } from './authReducer/authReducer';
-// import { systemReducer } from './systemReducer';
+import { systemReducer } from './SystemReducer';
+import { userDetailsReducer } from './userReducer';
 
 export const reducer = combineReducers({
-    auth: userReducer,
-    // system: systemReducer,
+    auth: authReducer,
+    system: systemReducer,
+    userDetails:userDetailsReducer
 })

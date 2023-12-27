@@ -4,10 +4,13 @@ import BackButton from '../CommonComp/BackButton'
 import SettingsHeader from '../CommonComp/SettingsHeader'
 import { heightValue,widthValue,styles, radius, marginPosition, fontSize ,setdisplaytofalse} from '../../../../../styles/Styles'
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5'
+import { useSelector } from 'react-redux'
 
 const SelectLanguage = () => {
   const [language,setlanguage]=useState(true);
   const[hindi,sethindi]=useState(false)
+  const darkMode = useSelector((state)=>state.system.darkMode)
+
 
   let handlehindi=()=>{
     setlanguage(false);
@@ -20,7 +23,7 @@ const SelectLanguage = () => {
   
   return (
     <SafeAreaView>
-    <View style={[styles.bglightblack,{height:heightValue(1),width:widthValue(1)},styles.centerHorizontal]}>
+    <View style={[darkMode?styles.bglightWhite:styles.bglightblack,{height:heightValue(1),width:widthValue(1)},styles.centerHorizontal]}>
        <View style={[{width:widthValue(1.1)}]}>
         <BackButton/>
         <SettingsHeader name={'Change'} heading={'Language'} details={'Select between your regional Assamese and English to view the App'}/>
